@@ -244,9 +244,11 @@ const AboutPage = () => {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
           <div className="space-y-8">
             <h2 className="text-xs uppercase tracking-[0.3em] text-white/40">My Specification</h2>
-            <h3 className="text-5xl font-bold tracking-tight leading-tight">
-              An icon.  <br /A journey. <br /A passion.
-            </h3>
+<h3 className="text-5xl font-bold tracking-tight leading-tight">
+  An icon. <br />
+  A journey. <br />
+  A passion.
+</h3>
             <p className="text-white/60 leading-relaxed text-lg">
 The 992.1 Carrera 4S represents a carefully considered specification built around all-weather capability and everyday usabilit            </p>
             <div className="pt-8 grid grid-cols-2 gap-8">
