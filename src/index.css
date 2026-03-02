@@ -1,0 +1,38 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+  
+  --color-porsche-black: #0A0A0A;
+  --color-porsche-charcoal: #1A1A1A;
+  --color-porsche-silver: #D1D5DB;
+  --color-porsche-accent: #E5E7EB;
+}
+
+@layer base {
+  body {
+    @apply bg-porsche-black text-white antialiased selection:bg-white selection:text-black;
+  }
+}
+
+.glass-panel {
+  @apply bg-white/5 backdrop-blur-md border border-white/10;
+}
+
+.cinematic-mask {
+  mask-image: linear-gradient(to bottom, black 80%, transparent 100%);
+}
+
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-porsche-black;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-white/20 rounded-full hover:bg-white/30 transition-colors;
+}
