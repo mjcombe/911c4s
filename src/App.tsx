@@ -87,7 +87,7 @@ const Footer = () => (
           <span className="font-light opacity-60">C4S</span>
         </div>
         <p className="text-white/40 text-sm max-w-xs leading-relaxed">
-          A personal ownership journal documenting my Porsche 911 (992.1) Carrera 4S and its unique specification.
+          An ownership journal documenting my Porsche 911 (992.1) Carrera 4S and its unique specification.
         </p>
       </div>
       <div className="space-y-6">
@@ -250,11 +250,10 @@ const AboutPage = () => {
           <div className="space-y-8">
             <h2 className="text-xs uppercase tracking-[0.3em] text-white/40">My Specification</h2>
             <h3 className="text-5xl font-bold tracking-tight leading-tight">
-              My car, my journey. <br />A lifelong passion.
+              An icon, a journey. <br />A passion.
             </h3>
             <p className="text-white/60 leading-relaxed text-lg">
-              This Porsche 911 Carrera 4S (992.1) is the culmination of a lifelong dream. Every detail of this specification was carefully selected to create my ideal balance between daily usability and weekend performance. It's more than just a car; it's a personal milestone.
-            </p>
+The 992.1 Carrera 4S represents a carefully considered specification built around all-weather capability and everyday usabilit            </p>
             <div className="pt-8 grid grid-cols-2 gap-8">
               <div>
                 <h4 className="text-xs uppercase tracking-widest text-white/40 mb-2">Configuration</h4>
