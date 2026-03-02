@@ -2,13 +2,10 @@ import { motion, AnimatePresence } from "motion/react";
 import { ChevronRight, Menu, X, Instagram, Mail, Maximize2 } from "lucide-react";
 import { useState, useEffect } from "react";
 
-/* =========================
-   NAVBAR
-========================= */
+/* ================= NAVBAR ================= */
 
 const Navbar = ({ activeSection, setActiveSection }: { activeSection: string, setActiveSection: (s: string) => void }) => {
   const [isScrolled, setIsScrolled] = useState(false);
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => setIsScrolled(window.scrollY > 50);
@@ -24,77 +21,55 @@ const Navbar = ({ activeSection, setActiveSection }: { activeSection: string, se
   ];
 
   return (
-    <nav className={`fixed top-0 left-0 w-full z-50 transition-all duration-500 ${isScrolled ? "bg-porsche-black/80 backdrop-blur-lg py-4 border-b border-white/5" : "bg-transparent py-8"}`}>
-      <div className="max-w-7xl mx-auto px-6 flex justify-between items-center">
-        <div
-          className="text-xl font-bold tracking-tighter flex items-center gap-2 cursor-pointer"
-          onClick={() => setActiveSection("home")}
-        >
+    <nav className={`fixed top-0 w-full z-50 transition-all duration-500 ${isScrolled ? "bg-porsche-black/80 backdrop-blur-lg py-4 border-b border-white/5" : "py-8"}`}>
+      <div className="max-w-7xl mx-auto px-6 flex justify-between">
+        <div onClick={() => setActiveSection("home")} className="cursor-pointer font-bold">
           <span className="text-porsche-silver">911</span>
-          <span className="font-light opacity-60">C4S</span>
+          <span className="opacity-60"> C4S</span>
         </div>
 
-        <div className="hidden md:flex items-center gap-10">
+        <div className="hidden md:flex gap-10">
           {navItems.map((item) => (
-            <button
-              key={item.id}
-              onClick={() => setActiveSection(item.id)}
-              className={`text-xs uppercase tracking-[0.2em] transition-all hover:text-white ${activeSection === item.id ? "text-white font-semibold" : "text-white/50"}`}
-            >
+            <button key={item.id} onClick={() => setActiveSection(item.id)} className="text-xs uppercase tracking-[0.2em] text-white/60 hover:text-white">
               {item.label}
             </button>
           ))}
         </div>
-
-        <button className="md:hidden text-white" onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}>
-          {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
-        </button>
       </div>
     </nav>
   );
 };
 
-/* =========================
-   FOOTER
-========================= */
+/* ================= FOOTER ================= */
 
 const Footer = () => (
-  <footer className="bg-porsche-black border-t border-white/5 py-20 px-6 text-center text-white/30 text-sm">
+  <footer className="bg-porsche-black border-t border-white/5 py-16 text-center text-white/30 text-sm">
     © 2026 Personal Automotive Project
   </footer>
 );
 
-/* =========================
-   HOME PAGE
-========================= */
+/* ================= HOME ================= */
 
 const HomePage = ({ onNavigate }: { onNavigate: (s: string) => void }) => (
   <section className="h-screen flex items-center justify-center text-center">
     <div>
       <h1 className="text-6xl font-bold">911 Carrera 4S</h1>
-      <button
-        onClick={() => onNavigate("gallery")}
-        className="mt-10 px-8 py-4 bg-white text-black text-xs uppercase tracking-widest"
-      >
-        View Gallery <ChevronRight size={16} />
+      <button onClick={() => onNavigate("gallery")} className="mt-10 px-10 py-4 bg-white text-black text-xs uppercase tracking-widest flex items-center gap-2 mx-auto">
+        Explore Gallery <ChevronRight size={16} />
       </button>
     </div>
   </section>
 );
 
-/* =========================
-   ABOUT PAGE
-========================= */
+/* ================= ABOUT ================= */
 
 const AboutPage = () => (
-  <div className="pt-32 pb-32 px-6 max-w-7xl mx-auto">
-    <img src="/R0020870.webp" className="w-full max-w-xl mx-auto object-cover" />
+  <div className="pt-32 pb-32 px-6 max-w-6xl mx-auto">
+    <img src="/R0020870.webp" className="w-full object-cover rounded-sm" />
   </div>
 );
 
-/* =========================
-   SPECS PAGE
-========================= */
+/* ================= SPECS ================= */
 
 const SpecsPage = () => (
   <div className="pt-32 pb-32 text-center">
@@ -102,14 +77,11 @@ const SpecsPage = () => (
   </div>
 );
 
-/* =========================
-   ✅ FIXED GALLERY PAGE
-========================= */
+/* ================= PREMIUM GALLERY ================= */
 
 const GalleryPage = () => {
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
 
-  /* -------- FIX WAS HERE -------- */
   const images = [
     "/R0020870.webp",
     "/R0020891.webp",
@@ -118,42 +90,63 @@ const GalleryPage = () => {
     "/R0020902.webp",
     "/R0020926.webp",
   ];
-  /* -------------------------------- */
 
   return (
     <div className="pt-32 pb-32 px-6 max-w-7xl mx-auto">
-      <h3 className="text-5xl text-center mb-20 font-bold">Personal Gallery</h3>
+      <div className="mb-20 text-center">
+        <h2 className="text-xs uppercase tracking-[0.3em] text-white/40 mb-4">My Visual Journal</h2>
+        <h3 className="text-5xl font-bold tracking-tight">Personal Gallery</h3>
+      </div>
 
+      {/* GRID */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {images.map((src, idx) => (
           <motion.div
             key={idx}
-            whileHover={{ scale: 1.02 }}
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: idx * 0.08 }}
             onClick={() => setSelectedImage(src)}
-            className="overflow-hidden cursor-pointer aspect-square relative glass-panel"
+            className="overflow-hidden group cursor-pointer aspect-square relative glass-panel"
           >
             <img
               src={src}
               alt={`Gallery ${idx}`}
-              className="w-full h-full object-cover"
+              className="
+                w-full h-full object-cover
+                transition duration-700 ease-out
+                filter grayscale contrast-110 brightness-90
+                group-hover:grayscale-0
+                group-hover:brightness-100
+                group-hover:contrast-100
+                group-hover:scale-105
+              "
             />
 
-            <div className="absolute inset-0 bg-black/20 opacity-0 hover:opacity-100 flex items-center justify-center transition">
-              <Maximize2 className="text-white w-8 h-8" />
+            {/* premium overlay */}
+            <div className="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition duration-500 flex items-center justify-center">
+              <Maximize2 className="text-white w-8 h-8 opacity-80" />
             </div>
           </motion.div>
         ))}
       </div>
 
+      {/* LIGHTBOX */}
       <AnimatePresence>
         {selectedImage && (
           <motion.div
-            className="fixed inset-0 bg-black/95 flex items-center justify-center z-50"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
             onClick={() => setSelectedImage(null)}
+            className="fixed inset-0 z-[100] bg-black/95 backdrop-blur-xl flex items-center justify-center p-6 cursor-zoom-out"
           >
-            <img
+            <motion.img
+              initial={{ scale: 0.92 }}
+              animate={{ scale: 1 }}
+              exit={{ scale: 0.92 }}
               src={selectedImage}
-              className="max-w-full max-h-full object-contain"
+              className="max-w-full max-h-full object-contain shadow-2xl"
             />
           </motion.div>
         )}
@@ -162,16 +155,17 @@ const GalleryPage = () => {
   );
 };
 
-/* =========================
-   MAIN APP
-========================= */
+/* ================= MAIN APP ================= */
 
 export default function App() {
   const [activeSection, setActiveSection] = useState("home");
 
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [activeSection]);
+
   const renderContent = () => {
     switch (activeSection) {
-      case "home": return <HomePage onNavigate={setActiveSection} />;
       case "about": return <AboutPage />;
       case "specs": return <SpecsPage />;
       case "gallery": return <GalleryPage />;
@@ -182,7 +176,11 @@ export default function App() {
   return (
     <div className="min-h-screen flex flex-col">
       <Navbar activeSection={activeSection} setActiveSection={setActiveSection} />
-      <main className="flex-grow">{renderContent()}</main>
+      <main className="flex-grow">
+        <motion.div key={activeSection} initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
+          {renderContent()}
+        </motion.div>
+      </main>
       <Footer />
     </div>
   );
