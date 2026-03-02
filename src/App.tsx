@@ -1,6 +1,6 @@
 import { motion, AnimatePresence } from "motion/react";
-import { ChevronRight, Menu, X, Instagram, Mail, Maximize2 } from "lucide-react";
-import { useState, useEffect } from "react";
+import { ChevronRight, Menu, X, Instagram, Mail, Maximize2, ChevronLeft } from "lucide-react";
+import { useState, useEffect, useCallback } from "react";
 
 // --- Components ---
 
@@ -24,7 +24,7 @@ const Navbar = ({ activeSection, setActiveSection }: { activeSection: string, se
   return (
     <nav className={`fixed top-0 left-0 w-full z-50 transition-all duration-500 ${isScrolled ? "bg-porsche-black/80 backdrop-blur-lg py-4 border-b border-white/5" : "bg-transparent py-8"}`}>
       <div className="max-w-7xl mx-auto px-6 flex justify-between items-center">
-        <motion.div 
+        <motion.div
           initial={{ opacity: 0, x: -20 }}
           animate={{ opacity: 1, x: 0 }}
           className="text-xl font-bold tracking-tighter flex items-center gap-2 cursor-pointer"
@@ -55,7 +55,7 @@ const Navbar = ({ activeSection, setActiveSection }: { activeSection: string, se
 
       {/* Mobile Menu */}
       {isMobileMenuOpen && (
-        <motion.div 
+        <motion.div
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
           className="absolute top-full left-0 w-full bg-porsche-black border-b border-white/10 py-8 px-6 flex flex-col gap-6 md:hidden"
@@ -123,15 +123,15 @@ const HomePage = ({ onNavigate }: { onNavigate: (s: string) => void }) => {
       {/* Hero Section */}
       <section className="relative h-screen w-full overflow-hidden flex items-center justify-center">
         <div className="absolute inset-0 z-0">
-          <img 
-            src="https://newsroom.porsche.com/.imaging/mte/porsche-templating-theme/image_1280x720/dam/pnr/2018/Products/911/911-Carrera-S-and-4S/911-Carrera-4S-Coupe/P18_0947_a_rgb./jcr:content/P18_0947_a_rgb." 
-            alt="Porsche 911 Hero" 
+          <img
+            src="https://newsroom.porsche.com/.imaging/mte/porsche-templating-theme/image_1280x720/dam/pnr/2018/Products/911/911-Carrera-S-and-4S/911-Carrera-4S-Coupe/P18_0947_a_rgb./jcr:content/P18_0947_a_rgb."
+            alt="Porsche 911 Hero"
             className="w-full h-full object-cover opacity-60 scale-105"
             referrerPolicy="no-referrer"
           />
           <div className="absolute inset-0 bg-gradient-to-b from-porsche-black/40 via-transparent to-porsche-black"></div>
         </div>
-        
+
         <div className="relative z-10 max-w-7xl mx-auto px-6 text-center space-y-8">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -184,12 +184,12 @@ const HomePage = ({ onNavigate }: { onNavigate: (s: string) => void }) => {
         <div className="max-w-7xl mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
             {[
-              { label: "Engine", value: "3.0L Twin-Turbo Flat-6", icon: "Engine" },
-              { label: "Power", value: "450 PS / 530 Nm", icon: "Bolt" },
-              { label: "Transmission", value: "8-speed PDK", icon: "Settings" },
-              { label: "Drivetrain", value: "All-Wheel Drive", icon: "Activity" },
+              { label: "Engine", value: "3.0L Twin-Turbo Flat-6" },
+              { label: "Power", value: "450 PS / 530 Nm" },
+              { label: "Transmission", value: "8-speed PDK" },
+              { label: "Drivetrain", value: "All-Wheel Drive" },
             ].map((spec) => (
-              <motion.div 
+              <motion.div
                 key={spec.label}
                 whileHover={{ y: -5 }}
                 className="p-8 glass-panel space-y-4"
@@ -210,7 +210,7 @@ const HomePage = ({ onNavigate }: { onNavigate: (s: string) => void }) => {
               <h2 className="text-xs uppercase tracking-[0.3em] text-white/40">Visual Presentation</h2>
               <h3 className="text-4xl font-bold tracking-tight">Featured Photography</h3>
             </div>
-            <button 
+            <button
               onClick={() => onNavigate("gallery")}
               className="text-xs uppercase tracking-widest text-white/60 hover:text-white transition-colors border-b border-white/20 pb-1"
             >
@@ -219,14 +219,14 @@ const HomePage = ({ onNavigate }: { onNavigate: (s: string) => void }) => {
           </div>
 
           <div className="space-y-8">
-            <motion.div 
+            <motion.div
               whileHover={{ y: -5 }}
               className="aspect-[21/9] overflow-hidden group cursor-pointer"
               onClick={() => onNavigate("gallery")}
             >
-              <img 
-                src="https://images-porsche.imgix.net/-/media/6DFC261DD0B040A0A3FF9081BD9A36B9_7DFF4660C80843078B7D504B7A95BEEC_CZ26W03OX0001-911-carrera-s-side?w=3000&q=45&crop=faces%2Centropy%2Cedges&auto=format" 
-                alt="White 911 Carrera 4S Side View" 
+              <img
+                src="https://images-porsche.imgix.net/-/media/6DFC261DD0B040A0A3FF9081BD9A36B9_7DFF4660C80843078B7D504B7A95BEEC_CZ26W03OX0001-911-carrera-s-side?w=3000&q=45&crop=faces%2Centropy%2Cedges&auto=format"
+                alt="White 911 Carrera 4S Side View"
                 className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105"
                 referrerPolicy="no-referrer"
               />
@@ -267,11 +267,10 @@ const AboutPage = () => {
             </div>
           </div>
           <div className="aspect-square overflow-hidden">
-            <img 
-              src="/R0020870.webp" 
-              alt="Porsche 911 Side" 
+            <img
+              src="/R0020870.webp"
+              alt="Porsche 911 Side"
               className="w-full h-full object-cover"
-              referrerPolicy="no-referrer"
             />
           </div>
         </div>
@@ -374,7 +373,6 @@ const SpecsPage = () => {
       </div>
 
       <div className="space-y-24">
-        {/* Equipment Highlights */}
         <section>
           <h4 className="text-sm uppercase tracking-widest text-white/60 font-semibold border-b border-white/10 pb-4 mb-8">
             Equipment Highlights
@@ -389,7 +387,6 @@ const SpecsPage = () => {
           </div>
         </section>
 
-        {/* Included Options */}
         <section>
           <h4 className="text-sm uppercase tracking-widest text-white/60 font-semibold border-b border-white/10 pb-4 mb-8">
             Included Options
@@ -410,7 +407,6 @@ const SpecsPage = () => {
           </div>
         </section>
 
-        {/* Technical Data */}
         <section>
           <h4 className="text-sm uppercase tracking-widest text-white/60 font-semibold border-b border-white/10 pb-4 mb-8">
             Technical Data
@@ -441,7 +437,6 @@ const SpecsPage = () => {
           </div>
         </section>
 
-        {/* Standard Equipment placeholder as per user request */}
         <section>
           <h4 className="text-sm uppercase tracking-widest text-white/60 font-semibold border-b border-white/10 pb-4 mb-4">
             Standard Equipment
@@ -454,16 +449,39 @@ const SpecsPage = () => {
 };
 
 const GalleryPage = () => {
-  const [selectedImage, setSelectedImage] = useState<string | null>(null);
+  const [selectedIndex, setSelectedIndex] = useState<number | null>(null);
 
+  // ✅ FIX: Added .webp extensions — original code had "/R0020870." etc (trailing dot, no extension)
   const images = [
-    "/R0020870.",
-    "/R0020891.",
-    "/R0020896.",
-    "/R0020898.",
-    "/R0020902.",
-    "/R0020926.",
+    "/R0020870.webp",
+    "/R0020891.webp",
+    "/R0020896.webp",
+    "/R0020898.webp",
+    "/R0020902.webp",
+    "/R0020926.webp",
   ];
+
+  const goNext = useCallback((e: React.MouseEvent) => {
+    e.stopPropagation();
+    setSelectedIndex((prev) => (prev !== null ? (prev + 1) % images.length : 0));
+  }, [images.length]);
+
+  const goPrev = useCallback((e: React.MouseEvent) => {
+    e.stopPropagation();
+    setSelectedIndex((prev) => (prev !== null ? (prev - 1 + images.length) % images.length : 0));
+  }, [images.length]);
+
+  // Keyboard navigation
+  useEffect(() => {
+    if (selectedIndex === null) return;
+    const handler = (e: KeyboardEvent) => {
+      if (e.key === "ArrowRight") setSelectedIndex((p) => (p !== null ? (p + 1) % images.length : 0));
+      if (e.key === "ArrowLeft") setSelectedIndex((p) => (p !== null ? (p - 1 + images.length) % images.length : 0));
+      if (e.key === "Escape") setSelectedIndex(null);
+    };
+    window.addEventListener("keydown", handler);
+    return () => window.removeEventListener("keydown", handler);
+  }, [selectedIndex, images.length]);
 
   return (
     <div className="pt-32 pb-32 px-6 max-w-7xl mx-auto">
@@ -479,48 +497,73 @@ const GalleryPage = () => {
             initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ delay: idx * 0.1 }}
-            onClick={() => setSelectedImage(src)}
+            onClick={() => setSelectedIndex(idx)}
             className="overflow-hidden group cursor-pointer aspect-square relative glass-panel"
           >
-            <img 
-              src={src} 
-              alt={`Gallery ${idx}`} 
+            {/* ✅ grayscale by default, colour on hover — pure Tailwind, no overlay image needed */}
+            <img
+              src={src}
+              alt={`Gallery ${idx + 1}`}
               className="w-full h-full object-cover transition-all duration-700 grayscale group-hover:grayscale-0 group-hover:scale-110"
-              referrerPolicy="no-referrer"
             />
             <div className="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
-              <Maximize2 className="text-white w-8 h-8" />
+              <Maximize2 className="text-white w-8 h-8 drop-shadow-lg" />
             </div>
           </motion.div>
         ))}
       </div>
 
-      {/* Lightbox */}
+      {/* ✅ Lightbox with prev/next + keyboard navigation */}
       <AnimatePresence>
-        {selectedImage && (
+        {selectedIndex !== null && (
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            onClick={() => setSelectedImage(null)}
+            onClick={() => setSelectedIndex(null)}
             className="fixed inset-0 z-[100] bg-black/95 backdrop-blur-xl flex items-center justify-center p-4 md:p-12 cursor-zoom-out"
           >
-            <motion.button
-              className="absolute top-8 right-8 text-white/50 hover:text-white transition-colors"
-              onClick={() => setSelectedImage(null)}
+            {/* Close */}
+            <button
+              className="absolute top-8 right-8 text-white/50 hover:text-white transition-colors z-10"
+              onClick={() => setSelectedIndex(null)}
             >
               <X size={32} />
-            </motion.button>
-            
+            </button>
+
+            {/* Prev */}
+            <button
+              className="absolute left-4 md:left-8 text-white/50 hover:text-white transition-colors z-10 p-2"
+              onClick={goPrev}
+            >
+              <ChevronLeft size={40} />
+            </button>
+
+            {/* Image */}
             <motion.img
+              key={selectedIndex}
               initial={{ scale: 0.9, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
               exit={{ scale: 0.9, opacity: 0 }}
-              src={selectedImage}
-              alt="Enlarged view"
-              className="max-w-full max-h-full object-contain shadow-2xl"
-              referrerPolicy="no-referrer"
+              transition={{ duration: 0.25 }}
+              src={images[selectedIndex]}
+              alt={`Gallery ${selectedIndex + 1}`}
+              className="max-w-full max-h-full object-contain shadow-2xl cursor-default"
+              onClick={(e) => e.stopPropagation()}
             />
+
+            {/* Next */}
+            <button
+              className="absolute right-4 md:right-8 text-white/50 hover:text-white transition-colors z-10 p-2"
+              onClick={goNext}
+            >
+              <ChevronRight size={40} />
+            </button>
+
+            {/* Counter */}
+            <div className="absolute bottom-8 left-1/2 -translate-x-1/2 text-white/30 text-xs uppercase tracking-widest">
+              {selectedIndex + 1} / {images.length}
+            </div>
           </motion.div>
         )}
       </AnimatePresence>
@@ -550,7 +593,7 @@ export default function App() {
   return (
     <div className="min-h-screen flex flex-col">
       <Navbar activeSection={activeSection} setActiveSection={setActiveSection} />
-      
+
       <main className="flex-grow">
         <motion.div
           key={activeSection}
