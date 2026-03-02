@@ -250,14 +250,14 @@ const AboutPage = () => {
           <div className="space-y-8">
             <h2 className="text-xs uppercase tracking-[0.3em] text-white/40">My Specification</h2>
             <h3 className="text-5xl font-bold tracking-tight leading-tight">
-              An icon, a journey. <br />A passion.
+              An icon. A journey. <br />A passion.
             </h3>
             <p className="text-white/60 leading-relaxed text-lg">
 The 992.1 Carrera 4S represents a carefully considered specification built around all-weather capability and everyday usabilit            </p>
             <div className="pt-8 grid grid-cols-2 gap-8">
               <div>
-                <h4 className="text-xs uppercase tracking-widest text-white/40 mb-2">Configuration</h4>
-                <p className="text-white font-medium">White Solid</p>
+                <h4 className="text-xs uppercase tracking-widest text-white/40 mb-2">Exterior</h4>
+                <p className="text-white font-medium">Porsche White</p>
               </div>
               <div>
                 <h4 className="text-xs uppercase tracking-widest text-white/40 mb-2">Interior</h4>
