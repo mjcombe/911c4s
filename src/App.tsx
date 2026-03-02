@@ -124,7 +124,7 @@ const HomePage = ({ onNavigate }: { onNavigate: (s: string) => void }) => {
       <section className="relative h-screen w-full overflow-hidden flex items-center justify-center">
         <div className="absolute inset-0 z-0">
           <img 
-            src="https://newsroom.porsche.com/.imaging/mte/porsche-templating-theme/image_1280x720/dam/pnr/2018/Products/911/911-Carrera-S-and-4S/911-Carrera-4S-Coupe/P18_0947_a_rgb.jpg/jcr:content/P18_0947_a_rgb.jpg" 
+            src="https://newsroom.porsche.com/.imaging/mte/porsche-templating-theme/image_1280x720/dam/pnr/2018/Products/911/911-Carrera-S-and-4S/911-Carrera-4S-Coupe/P18_0947_a_rgb./jcr:content/P18_0947_a_rgb." 
             alt="Porsche 911 Hero" 
             className="w-full h-full object-cover opacity-60 scale-105"
             referrerPolicy="no-referrer"
@@ -268,7 +268,7 @@ const AboutPage = () => {
           </div>
           <div className="aspect-square overflow-hidden">
             <img 
-              src="/R0020870.JPG" 
+              src="/R0020870.webp" 
               alt="Porsche 911 Side" 
               className="w-full h-full object-cover"
               referrerPolicy="no-referrer"
@@ -457,12 +457,12 @@ const GalleryPage = () => {
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
 
   const images = [
-    "/R0020870.JPG",
-    "/R0020891.JPG",
-    "/R0020896.JPG",
-    "/R0020898.jpg",
-    "/R0020902.JPG",
-    "/R0020926.JPG",
+    "/R0020870.",
+    "/R0020891.",
+    "/R0020896.",
+    "/R0020898.",
+    "/R0020902.",
+    "/R0020926.",
   ];
 
   return (
