@@ -252,12 +252,12 @@ const AboutPage = () => {
               The car, the journey. <br />The passion.
             </h3>
             <p className="text-white/60 leading-relaxed text-lg">
-              This Porsche 911 Carrera 4S (992.1) is the dream. It's more than just a car...
+              This Porsche 911 Carrera 4S 992.1 - It's more than just a car...
             </p>
             <div className="pt-8 grid grid-cols-2 gap-8">
               <div>
                 <h4 className="text-xs uppercase tracking-widest text-white/40 mb-2">Configuration</h4>
-                <p className="text-white font-medium">White Solid</p>
+                <p className="text-white font-medium">Porsche White</p>
               </div>
               <div>
                 <h4 className="text-xs uppercase tracking-widest text-white/40 mb-2">Interior</h4>
