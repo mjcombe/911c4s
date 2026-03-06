@@ -460,7 +460,7 @@ const [isStandardOpen, setIsStandardOpen] = useState(false);
                               {idx === 0 ? group.group : ""}
                             </td>
                             <td className="py-4 text-sm text-white/60">{spec.label}</td>
-<td className="py-4 text-sm text-white/90">{spec.value}</td>                          </tr>
+<td className="py-4 text-sm text-white/80">{spec.value}</td>                          </tr>
                         ))
                       ))}
                     </tbody>
