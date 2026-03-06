@@ -226,12 +226,12 @@ const HomePage = ({ onNavigate }: { onNavigate: (s: string) => void }) => {
               className="aspect-[21/9] overflow-hidden group cursor-pointer"
               onClick={() => onNavigate("gallery")}
             >
-              <img 
-                src="https://images-porsche.imgix.net/-/media/6DFC261DD0B040A0A3FF9081BD9A36B9_7DFF4660C80843078B7D504B7A95BEEC_CZ26W03OX0001-911-carrera-s-side?w=3000&q=45&crop=faces%2Centropy%2Cedges&auto=format" 
-                alt="White 911 Carrera 4S Side View" 
-                className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105"
-                referrerPolicy="no-referrer"
-              />
+<img 
+  src="/imgi_307_3840-1-scaled.webp"
+  alt="Porsche 911 Carrera 4S"
+  className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105"
+  referrerPolicy="no-referrer"
+/>
             </motion.div>
           </div>
         </div>
