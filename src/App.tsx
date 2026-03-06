@@ -632,7 +632,41 @@ const images = [
 };
 
 // --- Main App ---
+const ScrollToTop = () => {
+  const [visible, setVisible] = useState(false);
 
+  useEffect(() => {
+    const toggleVisibility = () => {
+      if (window.scrollY > 400) {
+        setVisible(true);
+      } else {
+        setVisible(false);
+      }
+    };
+
+    window.addEventListener("scroll", toggleVisibility);
+    return () => window.removeEventListener("scroll", toggleVisibility);
+  }, []);
+
+  const scrollTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth"
+    });
+  };
+
+  if (!visible) return null;
+
+  return (
+    <button
+      onClick={scrollTop}
+      className="fixed bottom-8 right-8 z-50 bg-white text-black p-3 rounded-full hover:bg-porsche-silver transition-all"
+      aria-label="Scroll to top"
+    >
+      ↑
+    </button>
+  );
+};
 export default function App() {
   const [activeSection, setActiveSection] = useState("home");
 
@@ -651,8 +685,10 @@ export default function App() {
   };
 
   return (
-    <div className="min-h-screen flex flex-col">
-      <Navbar activeSection={activeSection} setActiveSection={setActiveSection} />
+return (
+  <div className="min-h-screen flex flex-col">
+
+    <ScrollToTop />      <Navbar activeSection={activeSection} setActiveSection={setActiveSection} />
       
       <main className="flex-grow">
         <motion.div
