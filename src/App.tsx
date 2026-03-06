@@ -1,7 +1,12 @@
 import { motion, AnimatePresence } from "motion/react";
 import { ChevronRight, Menu, X, Instagram, Mail, Maximize2, ChevronDown, ChevronUp } from "lucide-react";
 import { useState, useEffect } from "react";
-
+<img 
+  src="/R0020870.webp" 
+  alt="Porsche 911 Side" 
+  className="w-full h-full object-cover"
+  referrerPolicy="no-referrer"
+/>
 // --- Components ---
 
 const Navbar = ({ activeSection, setActiveSection }: { activeSection: string, setActiveSection: (s: string) => void }) => {
