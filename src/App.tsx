@@ -34,7 +34,6 @@ const Navbar = ({ activeSection, setActiveSection }: { activeSection: string, se
           <span className="font-light opacity-60">C4S</span>
         </motion.div>
 
-        {/* Desktop Nav */}
         <div className="hidden md:flex items-center gap-10">
           {navItems.map((item) => (
             <button
@@ -47,70 +46,20 @@ const Navbar = ({ activeSection, setActiveSection }: { activeSection: string, se
           ))}
         </div>
 
-        {/* Mobile Toggle */}
         <button className="md:hidden text-white" onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}>
           {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
         </button>
       </div>
-
-      {/* Mobile Menu */}
-      {isMobileMenuOpen && (
-        <motion.div 
-          initial={{ opacity: 0, y: -20 }}
-          animate={{ opacity: 1, y: 0 }}
-          className="absolute top-full left-0 w-full bg-porsche-black border-b border-white/10 py-8 px-6 flex flex-col gap-6 md:hidden"
-        >
-          {navItems.map((item) => (
-            <button
-              key={item.id}
-              onClick={() => {
-                setActiveSection(item.id);
-                setIsMobileMenuOpen(false);
-              }}
-              className={`text-sm uppercase tracking-[0.2em] text-left ${activeSection === item.id ? "text-white" : "text-white/50"}`}
-            >
-              {item.label}
-            </button>
-          ))}
-        </motion.div>
-      )}
     </nav>
   );
 };
 
 const Footer = () => (
   <footer className="bg-porsche-black border-t border-white/5 py-20 px-6">
-    <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-12">
-      <div className="space-y-6">
-        <div className="text-2xl font-bold tracking-tighter">
-          <span className="text-porsche-silver">911</span>
-          <span className="font-light opacity-60">C4S</span>
-        </div>
-        <p className="text-white/40 text-sm max-w-xs leading-relaxed">
-          A personal ownership journal documenting my Porsche 911 (992.1) Carrera 4S and its unique specification.
-        </p>
-      </div>
-      <div className="space-y-6">
-        <h4 className="text-xs uppercase tracking-widest text-white/60 font-semibold">Connect</h4>
-        <div className="flex flex-col gap-4">
-          <a href="https://www.instagram.com/its.michaeljames/" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 text-white/40 hover:text-white transition-colors text-sm">
-            <Instagram size={18} /> its.michaeljames
-          </a>
-          <a href="mailto:mj@911c4s.co.uk" className="flex items-center gap-3 text-white/40 hover:text-white transition-colors text-sm">
-            <Mail size={18} /> mj@911c4s.co.uk
-          </a>
-        </div>
-      </div>
-      <div className="space-y-6">
-        <h4 className="text-xs uppercase tracking-widest text-white/60 font-semibold">Legal</h4>
-        <p className="text-white/30 text-[10px] uppercase tracking-widest leading-relaxed">
-          This site is a personal project and is not affiliated with, sponsored by, or endorsed by Porsche AG. Porsche and the Porsche Crest are registered trademarks of Dr. Ing. h.c. F. Porsche AG.
-        </p>
-      </div>
-    </div>
-    <div className="max-w-7xl mx-auto mt-20 pt-8 border-t border-white/5 flex justify-between items-center text-[10px] uppercase tracking-widest text-white/20">
-      <p>© 2026 MICHAEL JAMES</p>
-      <p>Designed for Performance</p>
+    <div className="max-w-7xl mx-auto">
+      <p className="text-white/40 text-sm">
+        © 2026 Michael James
+      </p>
     </div>
   </footer>
 );
@@ -120,118 +69,26 @@ const Footer = () => (
 const HomePage = ({ onNavigate }: { onNavigate: (s: string) => void }) => {
   return (
     <div className="w-full">
-      {/* Hero Section */}
       <section className="relative h-screen w-full overflow-hidden flex items-center justify-center">
         <div className="absolute inset-0 z-0">
           <img 
             src="https://newsroom.porsche.com/.imaging/mte/porsche-templating-theme/image_1280x720/dam/pnr/2018/Products/911/911-Carrera-S-and-4S/911-Carrera-4S-Coupe/P18_0947_a_rgb.jpg/jcr:content/P18_0947_a_rgb.jpg" 
             alt="Porsche 911 Hero" 
             className="w-full h-full object-cover opacity-60 scale-105"
-            referrerPolicy="no-referrer"
           />
-          <div className="absolute inset-0 bg-gradient-to-b from-porsche-black/40 via-transparent to-porsche-black"></div>
         </div>
-        
-        <div className="relative z-10 max-w-7xl mx-auto px-6 text-center space-y-8">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, ease: "easeOut" }}
+
+        <div className="relative z-10 text-center">
+          <h1 className="text-5xl md:text-8xl font-bold text-white">
+            911 Carrera 4S
+          </h1>
+
+          <button
+            onClick={() => onNavigate("gallery")}
+            className="mt-10 px-10 py-4 bg-white text-black text-xs uppercase tracking-widest"
           >
-            <h1 className="text-5xl md:text-8xl font-bold tracking-tighter text-white">
-              911 <span className="font-light opacity-40 italic">Carrera 4S</span>
-            </h1>
-            <p className="mt-6 text-sm md:text-base uppercase tracking-[0.4em] text-porsche-silver opacity-80">
-              911 992.1 Specification
-            </p>
-          </motion.div>
-
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 0.5, duration: 1 }}
-            className="flex flex-wrap justify-center gap-12 pt-12"
-          >
-            {[
-              { label: "Power", value: "450 PS" },
-              { label: "0-60 mph", value: "3.2s" },
-              { label: "Top Speed", value: "190 mph" },
-            ].map((stat) => (
-              <div key={stat.label} className="text-center">
-                <div className="text-2xl font-mono font-medium">{stat.value}</div>
-                <div className="text-[10px] uppercase tracking-widest text-white/40 mt-1">{stat.label}</div>
-              </div>
-            ))}
-          </motion.div>
-
-          <motion.button
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-            onClick={() => onNavigate("about")}
-            className="mt-16 px-10 py-4 bg-white text-black text-xs uppercase font-bold tracking-widest hover:bg-porsche-silver transition-colors flex items-center gap-2 mx-auto"
-          >
-            Explore Project <ChevronRight size={16} />
-          </motion.button>
-        </div>
-
-        <div className="absolute bottom-12 left-1/2 -translate-x-1/2 animate-bounce opacity-30">
-          <div className="w-[1px] h-12 bg-white"></div>
-        </div>
-      </section>
-
-      {/* Quick Specs Section */}
-      <section className="py-24 px-6 bg-porsche-charcoal/50 border-y border-white/5">
-        <div className="max-w-7xl mx-auto">
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
-            {[
-              { label: "Engine", value: "3.0L Twin-Turbo Flat-6", icon: "Engine" },
-              { label: "Power", value: "450 PS / 530 Nm", icon: "Bolt" },
-              { label: "Transmission", value: "8-speed PDK", icon: "Settings" },
-              { label: "Drivetrain", value: "All-Wheel Drive", icon: "Activity" },
-            ].map((spec) => (
-              <motion.div 
-                key={spec.label}
-                whileHover={{ y: -5 }}
-                className="p-8 glass-panel space-y-4"
-              >
-                <div className="text-[10px] uppercase tracking-[0.2em] text-white/40">{spec.label}</div>
-                <div className="text-lg font-bold tracking-tight">{spec.value}</div>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Featured Photography */}
-      <section className="py-32 px-6 bg-porsche-black">
-        <div className="max-w-7xl mx-auto">
-          <div className="flex justify-between items-end mb-16">
-            <div className="space-y-4">
-              <h2 className="text-xs uppercase tracking-[0.3em] text-white/40">Visual Presentation</h2>
-              <h3 className="text-4xl font-bold tracking-tight">Featured Photography</h3>
-            </div>
-            <button 
-              onClick={() => onNavigate("gallery")}
-              className="text-xs uppercase tracking-widest text-white/60 hover:text-white transition-colors border-b border-white/20 pb-1"
-            >
-              View Gallery
-            </button>
-          </div>
-
-          <div className="space-y-8">
-            <motion.div 
-              whileHover={{ y: -5 }}
-              className="aspect-[21/9] overflow-hidden group cursor-pointer"
-              onClick={() => onNavigate("gallery")}
-            >
-              <img 
-                src="https://images-porsche.imgix.net/-/media/6DFC261DD0B040A0A3FF9081BD9A36B9_7DFF4660C80843078B7D504B7A95BEEC_CZ26W03OX0001-911-carrera-s-side?w=3000&q=45&crop=faces%2Centropy%2Cedges&auto=format" 
-                alt="White 911 Carrera 4S Side View" 
-                className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105"
-                referrerPolicy="no-referrer"
-              />
-            </motion.div>
-          </div>
+            View Gallery
+          </button>
         </div>
       </section>
     </div>
@@ -241,326 +98,67 @@ const HomePage = ({ onNavigate }: { onNavigate: (s: string) => void }) => {
 const AboutPage = () => {
   return (
     <div className="pt-32 pb-32 px-6 max-w-7xl mx-auto">
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        className="space-y-20"
-      >
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
-          <div className="space-y-8">
-            <h2 className="text-xs uppercase tracking-[0.3em] text-white/40">My Specification</h2>
-            <h3 className="text-5xl font-bold tracking-tight leading-tight">
-              My car, my journey. <br />A lifelong passion.
-            </h3>
-            <p className="text-white/60 leading-relaxed text-lg">
-              This Porsche 911 Carrera 4S (992.1) is the culmination of a lifelong dream. Every detail of this specification was carefully selected to create my ideal balance between daily usability and weekend performance. It's more than just a car; it's a personal milestone.
-            </p>
-            <div className="pt-8 grid grid-cols-2 gap-8">
-              <div>
-                <h4 className="text-xs uppercase tracking-widest text-white/40 mb-2">Configuration</h4>
-                <p className="text-white font-medium">White Solid</p>
-              </div>
-              <div>
-                <h4 className="text-xs uppercase tracking-widest text-white/40 mb-2">Interior</h4>
-                <p className="text-white font-medium">Black Leather</p>
-              </div>
-            </div>
-          </div>
-          <div className="aspect-square overflow-hidden">
-            <img 
-              src="/R0020870.JPG" 
-              alt="Porsche 911 Side" 
-              className="w-full h-full object-cover"
-              referrerPolicy="no-referrer"
-            />
-          </div>
-        </div>
-
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-12 pt-20">
-          {[
-            { title: "Driving Dynamics", desc: "The all-wheel-drive system provides immense traction, allowing for confident corner exits in all weather conditions. It's exactly how I wanted the car to feel." },
-            { title: "My Factory Options", desc: "I equipped this car with the Sport Chrono Package, PASM Sport Suspension (-10mm), and Rear-Axle Steering for maximum agility." },
-            { title: "Personal Notes", desc: "This specific car was selected for its balance of touring comfort and track-ready performance capabilities. It's my ideal daily driver." },
-          ].map((item) => (
-            <div key={item.title} className="space-y-4 p-8 glass-panel">
-              <h4 className="text-lg font-bold tracking-tight">{item.title}</h4>
-              <p className="text-white/50 text-sm leading-relaxed">{item.desc}</p>
-            </div>
-          ))}
-        </div>
-      </motion.div>
+      <img src="/R0020870.JPG" className="w-full"/>
     </div>
   );
 };
 
 const SpecsPage = () => {
-  const [isOptionsOpen, setIsOptionsOpen] = useState(false);
-  const [isTechDataOpen, setIsTechDataOpen] = useState(false);
-
-  const equipmentHighlights = [
-    "Sport Chrono Package",
-    "Porsche Active Suspension Management (PASM)",
-    "LED Matrix Headlights",
-    "BOSE® Surround Sound System",
-    "Sports Exhaust System",
-    "Rear Axle Steering",
-    "Adaptive Sports Seats",
-    "Apple CarPlay",
-    "Navigation System",
-  ];
-
-  const includedOptions = [
-    {
-      category: "Exterior",
-      items: [
-        "Solid white paint",
-        "Electric folding exterior mirrors",
-        "Sports exhaust system including sports tailpipes",
-        "LED main headlights including Porsche Dynamic Light System Plus",
-      ],
-    },
-    {
-      category: "Interior",
-      items: [
-        "Multifunction GT sports steering wheel",
-        "Adaptive sports seats",
-        "Seat heating (front)",
-      ],
-    },
-    {
-      category: "Audio / Communication",
-      items: [
-        "BOSE® Surround Sound System",
-        "Navigation including Porsche Communication Management (PCM)",
-      ],
-    },
-    {
-      category: "Assistance Systems",
-      items: [
-        "ParkAssist (front and rear)",
-        "Cruise control",
-      ],
-    },
-  ];
-
-  const technicalData = [
-    {
-      group: "Engine",
-      specs: [
-        { label: "Engine Type", value: "Petrol engine" },
-        { label: "Configuration", value: "Twin turbocharged flat six engine" },
-      ],
-    },
-    {
-      group: "Performance",
-      specs: [
-        { label: "Power Output", value: "approx. 450 PS" },
-        { label: "Drivetrain", value: "All wheel drive" },
-        { label: "Transmission", value: "PDK transmission" },
-      ],
-    },
-    {
-      group: "Body",
-      specs: [
-        { label: "Type", value: "Coupé" },
-        { label: "Doors", value: "Two door" },
-      ],
-    },
-  ];
-
   return (
     <div className="pt-32 pb-32 px-6 max-w-7xl mx-auto">
-      <div className="mb-20">
-        <h2 className="text-xs uppercase tracking-[0.3em] text-white/40 mb-4">Porsche 911 Carrera 4S (992 I)</h2>
-        <h3 className="text-5xl font-bold tracking-tight">911 992.1 Specification</h3>
-      </div>
-
-      <div className="space-y-24">
-        {/* Equipment Highlights */}
-        <section>
-          <h4 className="text-sm uppercase tracking-widest text-white/60 font-semibold border-b border-white/10 pb-4 mb-8">
-            Equipment Highlights
-          </h4>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-            {equipmentHighlights.map((item) => (
-              <div key={item} className="flex items-center gap-3 py-3 border-b border-white/5">
-                <div className="w-1.5 h-1.5 bg-white/40 rounded-full"></div>
-                <span className="text-sm text-white/80">{item}</span>
-              </div>
-            ))}
-          </div>
-        </section>
-
-        {/* Included Options */}
-        <section>
-          <button 
-            onClick={() => setIsOptionsOpen(!isOptionsOpen)}
-            className="w-full flex justify-between items-center text-sm uppercase tracking-widest text-white/60 font-semibold border-b border-white/10 pb-4 mb-8 group"
-          >
-            <span>Included Options</span>
-            {isOptionsOpen ? <ChevronUp size={20} className="text-white/40 group-hover:text-white transition-colors" /> : <ChevronDown size={20} className="text-white/40 group-hover:text-white transition-colors" />}
-          </button>
-          
-          <AnimatePresence>
-            {isOptionsOpen && (
-              <motion.div 
-                initial={{ height: 0, opacity: 0 }}
-                animate={{ height: "auto", opacity: 1 }}
-                exit={{ height: 0, opacity: 0 }}
-                transition={{ duration: 0.3, ease: "easeInOut" }}
-                className="overflow-hidden"
-              >
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-12 pb-8">
-                  {includedOptions.map((group) => (
-                    <div key={group.category} className="space-y-4">
-                      <h5 className="text-xs uppercase tracking-wider text-white/30 font-bold">{group.category}</h5>
-                      <ul className="space-y-3">
-                        {group.items.map((item) => (
-                          <li key={item} className="text-sm text-white/70 leading-relaxed border-l border-white/10 pl-4">
-                            {item}
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
-                  ))}
-                </div>
-              </motion.div>
-            )}
-          </AnimatePresence>
-        </section>
-
-        {/* Technical Data */}
-        <section>
-          <button 
-            onClick={() => setIsTechDataOpen(!isTechDataOpen)}
-            className="w-full flex justify-between items-center text-sm uppercase tracking-widest text-white/60 font-semibold border-b border-white/10 pb-4 mb-8 group"
-          >
-            <span>Technical Data</span>
-            {isTechDataOpen ? <ChevronUp size={20} className="text-white/40 group-hover:text-white transition-colors" /> : <ChevronDown size={20} className="text-white/40 group-hover:text-white transition-colors" />}
-          </button>
-
-          <AnimatePresence>
-            {isTechDataOpen && (
-              <motion.div 
-                initial={{ height: 0, opacity: 0 }}
-                animate={{ height: "auto", opacity: 1 }}
-                exit={{ height: 0, opacity: 0 }}
-                transition={{ duration: 0.3, ease: "easeInOut" }}
-                className="overflow-hidden"
-              >
-                <div className="overflow-x-auto pb-8">
-                  <table className="w-full text-left border-collapse">
-                    <thead>
-                      <tr className="border-b border-white/10">
-                        <th className="py-4 text-xs uppercase tracking-widest text-white/30 font-medium w-1/3">Category</th>
-                        <th className="py-4 text-xs uppercase tracking-widest text-white/30 font-medium">Specification</th>
-                        <th className="py-4 text-xs uppercase tracking-widest text-white/30 font-medium">Value</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      {technicalData.map((group) => (
-                        group.specs.map((spec, idx) => (
-                          <tr key={`${group.group}-${spec.label}`} className="border-b border-white/5 hover:bg-white/[0.02] transition-colors">
-                            <td className="py-4 text-xs uppercase tracking-wider text-white/40">
-                              {idx === 0 ? group.group : ""}
-                            </td>
-                            <td className="py-4 text-sm text-white/60">{spec.label}</td>
-                            <td className="py-4 text-sm font-mono text-white/90">{spec.value}</td>
-                          </tr>
-                        ))
-                      ))}
-                    </tbody>
-                  </table>
-                </div>
-              </motion.div>
-            )}
-          </AnimatePresence>
-        </section>
-
-        {/* Standard Equipment placeholder as per user request */}
-        <section>
-          <h4 className="text-sm uppercase tracking-widest text-white/60 font-semibold border-b border-white/10 pb-4 mb-4">
-            Standard Equipment
-          </h4>
-          <p className="text-xs text-white/30 italic">Detailed standard equipment available upon request.</p>
-        </section>
-      </div>
+      <h2 className="text-4xl font-bold">Specification</h2>
     </div>
   );
 };
+
+/* ----------- FIXED GALLERY PAGE ----------- */
 
 const GalleryPage = () => {
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
 
   const images = [
-    "/R0020870.JPG",
-    "/R0020891.JPG",
-    "/R0020896.JPG",
-    "/R0020898.jpg",
-    "/R0020902.JPG",
-    "/R0020926.JPG",
-    "https://911c4s.co.uk/R0021052.webp",
-    "https://911c4s.co.uk/R0021023.webp",
-    "https://911c4s.co.uk/IMG_8760.webp",
-    "https://911c4s.co.uk/IMG_8748.webp",
+    "/R0020870.webp",
+    "/R0020891.webp",
+    "/R0020896.webp",
+    "/R0020898.webp",
+    "/R0020902.webp",
+    "/R0020926.webp",
+    "/R0021052.webp",
+    "/R0021023.webp",
+    "/IMG_8760.webp",
+    "/IMG_8748.webp",
   ];
 
   return (
     <div className="pt-32 pb-32 px-6 max-w-7xl mx-auto">
       <div className="mb-20 text-center">
-        <h2 className="text-xs uppercase tracking-[0.3em] text-white/40 mb-4">My Visual Journal</h2>
-        <h3 className="text-5xl font-bold tracking-tight">Personal Gallery</h3>
+        <h2 className="text-xs uppercase tracking-[0.3em] text-white/40 mb-4">
+          My Visual Journal
+        </h2>
+        <h3 className="text-5xl font-bold tracking-tight">
+          Personal Gallery
+        </h3>
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {images.map((src, idx) => (
           <motion.div
             key={idx}
-            initial={{ opacity: 0, scale: 0.95 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ delay: idx * 0.1 }}
             onClick={() => setSelectedImage(src)}
-            className="overflow-hidden group cursor-pointer aspect-square relative glass-panel flex items-center justify-center bg-black/20"
+            className="cursor-pointer"
           >
-            <img 
-              src={src} 
-              alt={`Gallery ${idx}`} 
-              className="max-w-full max-h-full object-contain transition-all duration-700 grayscale group-hover:grayscale-0 group-hover:scale-105"
-              referrerPolicy="no-referrer"
-            />
-            <div className="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
-              <Maximize2 className="text-white w-8 h-8" />
-            </div>
+            <img src={src} className="w-full"/>
           </motion.div>
         ))}
       </div>
 
-      {/* Lightbox */}
       <AnimatePresence>
         {selectedImage && (
           <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
             onClick={() => setSelectedImage(null)}
-            className="fixed inset-0 z-[100] bg-black/95 backdrop-blur-xl flex items-center justify-center p-4 md:p-12 cursor-zoom-out"
+            className="fixed inset-0 bg-black/95 flex items-center justify-center"
           >
-            <motion.button
-              className="absolute top-8 right-8 text-white/50 hover:text-white transition-colors"
-              onClick={() => setSelectedImage(null)}
-            >
-              <X size={32} />
-            </motion.button>
-            
-            <motion.img
-              initial={{ scale: 0.9, opacity: 0 }}
-              animate={{ scale: 1, opacity: 1 }}
-              exit={{ scale: 0.9, opacity: 0 }}
-              src={selectedImage}
-              alt="Enlarged view"
-              className="max-w-full max-h-full object-contain shadow-2xl"
-              referrerPolicy="no-referrer"
-            />
+            <img src={selectedImage} className="max-w-full max-h-full"/>
           </motion.div>
         )}
       </AnimatePresence>
@@ -572,10 +170,6 @@ const GalleryPage = () => {
 
 export default function App() {
   const [activeSection, setActiveSection] = useState("home");
-
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, [activeSection]);
 
   const renderContent = () => {
     switch (activeSection) {
@@ -590,18 +184,7 @@ export default function App() {
   return (
     <div className="min-h-screen flex flex-col">
       <Navbar activeSection={activeSection} setActiveSection={setActiveSection} />
-      
-      <main className="flex-grow">
-        <motion.div
-          key={activeSection}
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.5 }}
-        >
-          {renderContent()}
-        </motion.div>
-      </main>
-
+      <main className="flex-grow">{renderContent()}</main>
       <Footer />
     </div>
   );
