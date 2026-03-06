@@ -92,7 +92,7 @@ const Footer = () => (
           <span className="font-light opacity-60">C4S</span>
         </div>
         <p className="text-white/40 text-sm max-w-xs leading-relaxed">
-          A personal ownership journal documenting my Porsche 911 (992.1) Carrera 4S and its unique specification.
+          A personal ownership journal documenting my Porsche 911 992.1 Carrera 4S and its journey.
         </p>
       </div>
       <div className="space-y-6">
@@ -247,7 +247,7 @@ const AboutPage = () => {
       >
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
           <div className="space-y-8">
-            <h2 className="text-xs uppercase tracking-[0.3em] text-white/40">My Specification</h2>
+            <h2 className="text-xs uppercase tracking-[0.3em] text-white/40">Specification</h2>
             <h3 className="text-5xl font-bold tracking-tight leading-tight">
               The car, the journey. <br />The passion.
             </h3>
@@ -277,9 +277,9 @@ const AboutPage = () => {
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-12 pt-20">
           {[
-            { title: "Driving Dynamics", desc: "The all-wheel-drive system provides immense traction, allowing for confident corner exits in all weather conditions. It's exactly how I wanted the car to feel." },
-            { title: "My Factory Options", desc: "I equipped this car with the Sport Chrono Package, PASM Sport Suspension (-10mm), and Rear-Axle Steering for maximum agility." },
-            { title: "Personal Notes", desc: "This specific car was selected for its balance of touring comfort and track-ready performance capabilities. It's my ideal daily driver." },
+            { title: "Driving Dynamics", desc: "The all-wheel-drive system provides immense traction, allowing for confident corner exits in all weather conditions. It's exactly how this 911 should feel." },
+            { title: "Factory Options", desc: "This vehicle is equipped this car with the Sport Chrono Package, PASM Sport Suspension (-10mm), and Rear-Axle Steering for maximum agility." },
+            { title: "Personal Notes", desc: "This specific car was selected for its balance of touring comfort and track-ready performance capabilities. It's an ideal daily driver." },
           ].map((item) => (
             <div key={item.title} className="space-y-4 p-8 glass-panel">
               <h4 className="text-lg font-bold tracking-tight">{item.title}</h4>
