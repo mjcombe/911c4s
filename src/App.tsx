@@ -128,12 +128,6 @@ const HomePage = ({ onNavigate }: { onNavigate: (s: string) => void }) => {
       {/* Hero Section */}
       <section className="relative h-screen w-full overflow-hidden flex items-center justify-center">
         <div className="absolute inset-0 z-0">
-          <img 
-            src="https://newsroom.porsche.com/.imaging/mte/porsche-templating-theme/image_1280x720/dam/pnr/2018/Products/911/911-Carrera-S-and-4S/911-Carrera-4S-Coupe/P18_0947_a_rgb.jpg/jcr:content/P18_0947_a_rgb.jpg" 
-            alt="Porsche 911 Hero" 
-            className="w-full h-full object-cover opacity-60 scale-105"
-            referrerPolicy="no-referrer"
-          />
           <div className="absolute inset-0 bg-gradient-to-b from-porsche-black/40 via-transparent to-porsche-black"></div>
         </div>
         
