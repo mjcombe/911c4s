@@ -267,12 +267,12 @@ const AboutPage = () => {
             </div>
           </div>
           <div className="aspect-square overflow-hidden">
-            <img 
-              src="/R0020870.JPG" 
-              alt="Porsche 911 Side" 
-              className="w-full h-full object-cover"
-              referrerPolicy="no-referrer"
-            />
+           <img 
+  src="/R0020870.webp" 
+  alt="Porsche 911 Side" 
+  className="w-full h-full object-cover"
+  referrerPolicy="no-referrer"
+/>
           </div>
         </div>
 
