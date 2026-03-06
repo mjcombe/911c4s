@@ -108,8 +108,17 @@ const Footer = () => (
       </div>
     </div>
     <div className="max-w-7xl mx-auto mt-20 pt-8 border-t border-white/5 flex justify-between items-center text-[10px] uppercase tracking-widest text-white/20">
-      <p>© 2026 MICHAEL JAMES</p>
-      <p>Designed for Performance</p>
+<p>
+  © 2026{" "}
+  <a
+    href="https://itsmichaeljames.co.uk/"
+    target="_blank"
+    rel="noopener noreferrer"
+    className="text-white hover:text-white/70 transition-colors"
+  >
+    Michael James
+  </a>
+</p>
     </div>
   </footer>
 );
