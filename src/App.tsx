@@ -1,5 +1,6 @@
 import { motion, AnimatePresence } from "motion/react";
 import { ChevronRight, Menu, X, Instagram, Mail, Maximize2, ChevronDown, ChevronUp, ArrowUp } from "lucide-react";
+import { useState, useEffect } from "react";
 // --- Components ---
 
 const Navbar = ({ activeSection, setActiveSection }: { activeSection: string, setActiveSection: (s: string) => void }) => {
