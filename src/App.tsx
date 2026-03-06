@@ -492,18 +492,18 @@ const SpecsPage = () => {
 const GalleryPage = () => {
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
 
-  const images = [
-    "/R0020870.JPG",
-    "/R0020891.JPG",
-    "/R0020896.JPG",
-    "/R0020898.jpg",
-    "/R0020902.JPG",
-    "/R0020926.JPG",
-    "https://911c4s.co.uk/R0021052.webp",
-    "https://911c4s.co.uk/R0021023.webp",
-    "https://911c4s.co.uk/IMG_8760.webp",
-    "https://911c4s.co.uk/IMG_8748.webp",
-  ];
+const images = [
+  "/R0020870.webp",
+  "/R0020891.webp",
+  "/R0020896.webp",
+  "/R0020898.webp",
+  "/R0020902.webp",
+  "/R0020926.webp",
+  "/R0021052.webp",
+  "/R0021023.webp",
+  "/IMG_8760.webp",
+  "/IMG_8748.webp",
+];
 
   return (
     <div className="pt-32 pb-32 px-6 max-w-7xl mx-auto">
