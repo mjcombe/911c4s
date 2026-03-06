@@ -311,8 +311,7 @@ const [isStandardOpen, setIsStandardOpen] = useState(false);
         "Electric folding exterior mirrors",
         "Sports exhaust system including sports tailpipes",
         "LED main headlights including Porsche Dynamic Light System Plus",
-        "Carerra Classic 10 spoke alloy wheels",
-      ],
+"Carrera Classic 10 spoke alloy wheels",
     },
     {
       category: "Interior",
