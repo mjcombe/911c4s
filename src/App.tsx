@@ -444,12 +444,11 @@ const [isStandardOpen, setIsStandardOpen] = useState(false);
                 className="overflow-hidden"
               >
                 <div className="overflow-x-auto pb-8">
-                  <table className="w-full text-left border-collapse">
-                    <thead>
+<table className="w-full text-left border-collapse table-fixed">                    <thead>
                       <tr className="border-b border-white/10">
-                        <th className="py-4 text-xs uppercase tracking-widest text-white/30 font-medium w-1/3">Category</th>
-                        <th className="py-4 text-xs uppercase tracking-widest text-white/30 font-medium">Specification</th>
-                        <th className="py-4 text-xs uppercase tracking-widest text-white/30 font-medium">Value</th>
+                      <th className="py-4 text-xs uppercase tracking-widest text-white/30 font-medium w-[25%]">Category</th>
+<th className="py-4 text-xs uppercase tracking-widest text-white/30 font-medium w-[45%]">Specification</th>
+<th className="py-4 text-xs uppercase tracking-widest text-white/30 font-medium w-[30%]">Value</th>
                       </tr>
                     </thead>
                     <tbody>
@@ -460,7 +459,7 @@ const [isStandardOpen, setIsStandardOpen] = useState(false);
                               {idx === 0 ? group.group : ""}
                             </td>
                             <td className="py-4 text-sm text-white/60">{spec.label}</td>
-<td className="py-4 text-sm text-white/80">{spec.value}</td>                          </tr>
+<td className="py-4 text-sm text-white/80 text-left">{spec.value}</td>                  </tr>
                         ))
                       ))}
                     </tbody>
