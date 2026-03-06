@@ -249,10 +249,10 @@ const AboutPage = () => {
           <div className="space-y-8">
             <h2 className="text-xs uppercase tracking-[0.3em] text-white/40">My Specification</h2>
             <h3 className="text-5xl font-bold tracking-tight leading-tight">
-              My car, my journey. <br />A lifelong passion.
+              The car, the journey. <br />The passion.
             </h3>
             <p className="text-white/60 leading-relaxed text-lg">
-              This Porsche 911 Carrera 4S (992.1) is the culmination of a lifelong dream. Every detail of this specification was carefully selected to create my ideal balance between daily usability and weekend performance. It's more than just a car; it's a personal milestone.
+              This Porsche 911 Carrera 4S (992.1) is the dream. It's more than just a car...
             </p>
             <div className="pt-8 grid grid-cols-2 gap-8">
               <div>
