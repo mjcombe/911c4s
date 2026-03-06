@@ -367,7 +367,7 @@ const [isStandardOpen, setIsStandardOpen] = useState(false);
     <div className="pt-32 pb-32 px-6 max-w-7xl mx-auto">
       <div className="mb-20">
         <h2 className="text-xs uppercase tracking-[0.3em] text-white/40 mb-4">Porsche 911 Carrera 4S (992 I)</h2>
-        <h3 className="text-5xl font-bold tracking-tight">911 992.1 Specification</h3>
+        <h3 className="text-5xl md:text-6xl font-bold tracking-tight">911 992.1 Specification</h3>
       </div>
 
       <div className="space-y-24">
