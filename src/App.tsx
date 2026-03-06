@@ -1,6 +1,5 @@
 import { motion, AnimatePresence } from "motion/react";
-import { ChevronRight, Menu, X, Instagram, Mail, Maximize2, ChevronDown, ChevronUp } from "lucide-react";
-import { useState, useEffect } from "react";
+import { ChevronRight, Menu, X, Instagram, Mail, Maximize2, ChevronDown, ChevronUp, ArrowUp } from "lucide-react";import { useState, useEffect } from "react";
 // --- Components ---
 
 const Navbar = ({ activeSection, setActiveSection }: { activeSection: string, setActiveSection: (s: string) => void }) => {
@@ -662,7 +661,7 @@ const ScrollToTop = () => {
       onClick={scrollTop}
 className="fixed bottom-8 right-8 z-50 border border-white/20 text-white p-3 rounded-full hover:border-white hover:bg-white/10 transition-all backdrop-blur"      aria-label="Scroll to top"
     >
-      ↑
+      Arrow icon from Lucide
     </button>
   );
 };
