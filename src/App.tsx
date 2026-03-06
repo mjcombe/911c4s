@@ -303,39 +303,40 @@ const [isStandardOpen, setIsStandardOpen] = useState(false);
     "Navigation System",
   ];
 
-  const includedOptions = [
-    {
-      category: "Exterior",
-      items: [
-        "Solid white paint",
-        "Electric folding exterior mirrors",
-        "Sports exhaust system including sports tailpipes",
-        "LED main headlights including Porsche Dynamic Light System Plus",
-"Carrera Classic 10 spoke alloy wheels",
-    },
-    {
-      category: "Interior",
-      items: [
-        "Multifunction GT sports steering wheel",
-        "Adaptive sports seats",
-        "Seat heating (front)",
-      ],
-    },
-    {
-      category: "Audio / Communication",
-      items: [
-        "BOSE® Surround Sound System",
-        "Navigation including Porsche Communication Management (PCM)",
-      ],
-    },
-    {
-      category: "Assistance Systems",
-      items: [
-        "ParkAssist (front and rear)",
-        "Cruise control",
-      ],
-    },
-  ];
+const includedOptions = [
+  {
+    category: "Exterior",
+    items: [
+      "Solid white paint",
+      "Electric folding exterior mirrors",
+      "Sports exhaust system including sports tailpipes",
+      "LED main headlights including Porsche Dynamic Light System Plus",
+      "Carrera Classic 10 spoke alloy wheels"
+    ]
+  },
+  {
+    category: "Interior",
+    items: [
+      "Multifunction GT sports steering wheel",
+      "Adaptive sports seats",
+      "Seat heating (front)"
+    ]
+  },
+  {
+    category: "Audio / Communication",
+    items: [
+      "BOSE® Surround Sound System",
+      "Navigation including Porsche Communication Management (PCM)"
+    ]
+  },
+  {
+    category: "Assistance Systems",
+    items: [
+      "ParkAssist (front and rear)",
+      "Cruise control"
+    ]
+  }
+];
 
   const technicalData = [
     {
