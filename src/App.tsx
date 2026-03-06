@@ -660,8 +660,7 @@ const ScrollToTop = () => {
   return (
     <button
       onClick={scrollTop}
-      className="fixed bottom-8 right-8 z-50 bg-white text-black p-3 rounded-full hover:bg-porsche-silver transition-all"
-      aria-label="Scroll to top"
+className="fixed bottom-8 right-8 z-50 border border-white/20 text-white p-3 rounded-full hover:border-white hover:bg-white/10 transition-all backdrop-blur"      aria-label="Scroll to top"
     >
       ↑
     </button>
