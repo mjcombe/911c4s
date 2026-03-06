@@ -293,8 +293,9 @@ const AboutPage = () => {
 };
 
 const SpecsPage = () => {
-  const [isOptionsOpen, setIsOptionsOpen] = useState(false);
-  const [isTechDataOpen, setIsTechDataOpen] = useState(false);
+const [isOptionsOpen, setIsOptionsOpen] = useState(false);
+const [isTechDataOpen, setIsTechDataOpen] = useState(false);
+const [isStandardOpen, setIsStandardOpen] = useState(false);
 
   const equipmentHighlights = [
     "Sport Chrono Package",
@@ -478,58 +479,80 @@ const SpecsPage = () => {
 
         {/* Standard Equipment placeholder as per user request */}
 {/* Standard Equipment */}
+{/* Standard Equipment */}
 <section>
-  <h4 className="text-sm uppercase tracking-widest text-white/60 font-semibold border-b border-white/10 pb-4 mb-8">
-    Standard Equipment
-  </h4>
+  <button 
+    onClick={() => setIsStandardOpen(!isStandardOpen)}
+    className="w-full flex justify-between items-center text-sm uppercase tracking-widest text-white/60 font-semibold border-b border-white/10 pb-4 mb-8 group"
+  >
+    <span>Standard Equipment</span>
+    {isStandardOpen ? 
+      <ChevronUp size={20} className="text-white/40 group-hover:text-white transition-colors" /> :
+      <ChevronDown size={20} className="text-white/40 group-hover:text-white transition-colors" />
+    }
+  </button>
 
-  <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-12 pb-8">
+  <AnimatePresence>
+    {isStandardOpen && (
+      <motion.div
+        initial={{ height: 0, opacity: 0 }}
+        animate={{ height: "auto", opacity: 1 }}
+        exit={{ height: 0, opacity: 0 }}
+        transition={{ duration: 0.3, ease: "easeInOut" }}
+        className="overflow-hidden"
+      >
 
-    <div className="space-y-4">
-      <h5 className="text-xs uppercase tracking-wider text-white/30 font-bold">Performance</h5>
-      <ul className="space-y-3">
-        <li className="text-sm text-white/70 border-l border-white/10 pl-4">3.0 litre twin turbocharged flat six engine</li>
-        <li className="text-sm text-white/70 border-l border-white/10 pl-4">8 speed Porsche PDK transmission</li>
-        <li className="text-sm text-white/70 border-l border-white/10 pl-4">Porsche Traction Management all wheel drive</li>
-        <li className="text-sm text-white/70 border-l border-white/10 pl-4">Porsche Stability Management</li>
-        <li className="text-sm text-white/70 border-l border-white/10 pl-4">Wet Mode driving system</li>
-      </ul>
-    </div>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-12 pb-8">
 
-    <div className="space-y-4">
-      <h5 className="text-xs uppercase tracking-wider text-white/30 font-bold">Chassis</h5>
-      <ul className="space-y-3">
-        <li className="text-sm text-white/70 border-l border-white/10 pl-4">Porsche Active Suspension Management (PASM)</li>
-        <li className="text-sm text-white/70 border-l border-white/10 pl-4">Porsche Torque Vectoring Plus</li>
-        <li className="text-sm text-white/70 border-l border-white/10 pl-4">Sports exhaust system</li>
-        <li className="text-sm text-white/70 border-l border-white/10 pl-4">20 inch front / 21 inch rear alloy wheels</li>
-        <li className="text-sm text-white/70 border-l border-white/10 pl-4">Large steel brake system</li>
-      </ul>
-    </div>
+          <div className="space-y-4">
+            <h5 className="text-xs uppercase tracking-wider text-white/30 font-bold">Performance</h5>
+            <ul className="space-y-3">
+              <li className="text-sm text-white/70 border-l border-white/10 pl-4">3.0 litre twin turbocharged flat six engine</li>
+              <li className="text-sm text-white/70 border-l border-white/10 pl-4">8 speed Porsche PDK transmission</li>
+              <li className="text-sm text-white/70 border-l border-white/10 pl-4">Porsche Traction Management all wheel drive</li>
+              <li className="text-sm text-white/70 border-l border-white/10 pl-4">Porsche Stability Management</li>
+              <li className="text-sm text-white/70 border-l border-white/10 pl-4">Wet Mode driving system</li>
+            </ul>
+          </div>
 
-    <div className="space-y-4">
-      <h5 className="text-xs uppercase tracking-wider text-white/30 font-bold">Interior</h5>
-      <ul className="space-y-3">
-        <li className="text-sm text-white/70 border-l border-white/10 pl-4">Leather interior trim</li>
-        <li className="text-sm text-white/70 border-l border-white/10 pl-4">Sports seats with electric adjustment</li>
-        <li className="text-sm text-white/70 border-l border-white/10 pl-4">Multifunction sports steering wheel</li>
-        <li className="text-sm text-white/70 border-l border-white/10 pl-4">Dual zone automatic climate control</li>
-        <li className="text-sm text-white/70 border-l border-white/10 pl-4">Keyless ignition</li>
-      </ul>
-    </div>
+          <div className="space-y-4">
+            <h5 className="text-xs uppercase tracking-wider text-white/30 font-bold">Chassis</h5>
+            <ul className="space-y-3">
+              <li className="text-sm text-white/70 border-l border-white/10 pl-4">Porsche Active Suspension Management (PASM)</li>
+              <li className="text-sm text-white/70 border-l border-white/10 pl-4">Porsche Torque Vectoring Plus</li>
+              <li className="text-sm text-white/70 border-l border-white/10 pl-4">Sports exhaust system</li>
+              <li className="text-sm text-white/70 border-l border-white/10 pl-4">20 inch front / 21 inch rear alloy wheels</li>
+              <li className="text-sm text-white/70 border-l border-white/10 pl-4">Large steel brake system</li>
+            </ul>
+          </div>
 
-    <div className="space-y-4">
-      <h5 className="text-xs uppercase tracking-wider text-white/30 font-bold">Technology</h5>
-      <ul className="space-y-3">
-        <li className="text-sm text-white/70 border-l border-white/10 pl-4">10.9 inch Porsche Communication Management touchscreen</li>
-        <li className="text-sm text-white/70 border-l border-white/10 pl-4">Integrated navigation system</li>
-        <li className="text-sm text-white/70 border-l border-white/10 pl-4">Apple CarPlay</li>
-        <li className="text-sm text-white/70 border-l border-white/10 pl-4">Digital instrument display with analogue rev counter</li>
-        <li className="text-sm text-white/70 border-l border-white/10 pl-4">Bluetooth connectivity</li>
-      </ul>
-    </div>
+          <div className="space-y-4">
+            <h5 className="text-xs uppercase tracking-wider text-white/30 font-bold">Interior</h5>
+            <ul className="space-y-3">
+              <li className="text-sm text-white/70 border-l border-white/10 pl-4">Leather interior trim</li>
+              <li className="text-sm text-white/70 border-l border-white/10 pl-4">Sports seats with electric adjustment</li>
+              <li className="text-sm text-white/70 border-l border-white/10 pl-4">Multifunction sports steering wheel</li>
+              <li className="text-sm text-white/70 border-l border-white/10 pl-4">Dual zone automatic climate control</li>
+              <li className="text-sm text-white/70 border-l border-white/10 pl-4">Keyless ignition</li>
+            </ul>
+          </div>
 
-  </div>
+          <div className="space-y-4">
+            <h5 className="text-xs uppercase tracking-wider text-white/30 font-bold">Technology</h5>
+            <ul className="space-y-3">
+              <li className="text-sm text-white/70 border-l border-white/10 pl-4">10.9 inch Porsche Communication Management touchscreen</li>
+              <li className="text-sm text-white/70 border-l border-white/10 pl-4">Integrated navigation system</li>
+              <li className="text-sm text-white/70 border-l border-white/10 pl-4">Apple CarPlay</li>
+              <li className="text-sm text-white/70 border-l border-white/10 pl-4">Digital instrument display with analogue rev counter</li>
+              <li className="text-sm text-white/70 border-l border-white/10 pl-4">Bluetooth connectivity</li>
+            </ul>
+          </div>
+
+        </div>
+
+      </motion.div>
+    )}
+  </AnimatePresence>
 </section>
       </div>
     </div>
