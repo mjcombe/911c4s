@@ -36,10 +36,3 @@
 ::-webkit-scrollbar-thumb {
   @apply bg-white/20 rounded-full hover:bg-white/30 transition-colors;
 }
-/* Fix mobile ghost image error */
-@media (max-width: 768px) {
-  *::before,
-  *::after {
-    background-image: none !important;
-  }
-}

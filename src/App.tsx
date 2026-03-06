@@ -1,6 +1,6 @@
 import { motion, AnimatePresence } from "motion/react";
-import { ChevronRight, Menu, X, Instagram, Mail, Maximize2, ChevronLeft } from "lucide-react";
-import { useState, useEffect, useCallback } from "react";
+import { ChevronRight, Menu, X, Instagram, Mail, Maximize2, ChevronDown, ChevronUp } from "lucide-react";
+import { useState, useEffect } from "react";
 
 // --- Components ---
 
@@ -24,7 +24,7 @@ const Navbar = ({ activeSection, setActiveSection }: { activeSection: string, se
   return (
     <nav className={`fixed top-0 left-0 w-full z-50 transition-all duration-500 ${isScrolled ? "bg-porsche-black/80 backdrop-blur-lg py-4 border-b border-white/5" : "bg-transparent py-8"}`}>
       <div className="max-w-7xl mx-auto px-6 flex justify-between items-center">
-        <motion.div
+        <motion.div 
           initial={{ opacity: 0, x: -20 }}
           animate={{ opacity: 1, x: 0 }}
           className="text-xl font-bold tracking-tighter flex items-center gap-2 cursor-pointer"
@@ -55,7 +55,7 @@ const Navbar = ({ activeSection, setActiveSection }: { activeSection: string, se
 
       {/* Mobile Menu */}
       {isMobileMenuOpen && (
-        <motion.div
+        <motion.div 
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
           className="absolute top-full left-0 w-full bg-porsche-black border-b border-white/10 py-8 px-6 flex flex-col gap-6 md:hidden"
@@ -87,17 +87,17 @@ const Footer = () => (
           <span className="font-light opacity-60">C4S</span>
         </div>
         <p className="text-white/40 text-sm max-w-xs leading-relaxed">
-          An ownership journal documenting my Porsche 911 (992.1) Carrera 4S and its unique specification.
+          A personal ownership journal documenting my Porsche 911 (992.1) Carrera 4S and its unique specification.
         </p>
       </div>
       <div className="space-y-6">
         <h4 className="text-xs uppercase tracking-widest text-white/60 font-semibold">Connect</h4>
         <div className="flex flex-col gap-4">
-          <a href="#" className="flex items-center gap-3 text-white/40 hover:text-white transition-colors text-sm">
-            <Instagram size={18} /> @porsche_992_c4s
+          <a href="https://www.instagram.com/its.michaeljames/" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 text-white/40 hover:text-white transition-colors text-sm">
+            <Instagram size={18} /> its.michaeljames
           </a>
-          <a href="#" className="flex items-center gap-3 text-white/40 hover:text-white transition-colors text-sm">
-            <Mail size={18} /> contact@911c4s.com
+          <a href="mailto:mj@911c4s.co.uk" className="flex items-center gap-3 text-white/40 hover:text-white transition-colors text-sm">
+            <Mail size={18} /> mj@911c4s.co.uk
           </a>
         </div>
       </div>
@@ -109,7 +109,7 @@ const Footer = () => (
       </div>
     </div>
     <div className="max-w-7xl mx-auto mt-20 pt-8 border-t border-white/5 flex justify-between items-center text-[10px] uppercase tracking-widest text-white/20">
-      <p>© 2026 Personal Automotive Project</p>
+      <p>© 2026 MICHAEL JAMES</p>
       <p>Designed for Performance</p>
     </div>
   </footer>
@@ -123,10 +123,15 @@ const HomePage = ({ onNavigate }: { onNavigate: (s: string) => void }) => {
       {/* Hero Section */}
       <section className="relative h-screen w-full overflow-hidden flex items-center justify-center">
         <div className="absolute inset-0 z-0">
-
+          <img 
+            src="https://newsroom.porsche.com/.imaging/mte/porsche-templating-theme/image_1280x720/dam/pnr/2018/Products/911/911-Carrera-S-and-4S/911-Carrera-4S-Coupe/P18_0947_a_rgb.jpg/jcr:content/P18_0947_a_rgb.jpg" 
+            alt="Porsche 911 Hero" 
+            className="w-full h-full object-cover opacity-60 scale-105"
+            referrerPolicy="no-referrer"
+          />
           <div className="absolute inset-0 bg-gradient-to-b from-porsche-black/40 via-transparent to-porsche-black"></div>
         </div>
-
+        
         <div className="relative z-10 max-w-7xl mx-auto px-6 text-center space-y-8">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -137,7 +142,7 @@ const HomePage = ({ onNavigate }: { onNavigate: (s: string) => void }) => {
               911 <span className="font-light opacity-40 italic">Carrera 4S</span>
             </h1>
             <p className="mt-6 text-sm md:text-base uppercase tracking-[0.4em] text-porsche-silver opacity-80">
-              My 911 992.1 Specification
+              911 992.1 Specification
             </p>
           </motion.div>
 
@@ -149,8 +154,8 @@ const HomePage = ({ onNavigate }: { onNavigate: (s: string) => void }) => {
           >
             {[
               { label: "Power", value: "450 PS" },
-              { label: "0-100 km/h", value: "3.4s" },
-              { label: "Top Speed", value: "306 km/h" },
+              { label: "0-60 mph", value: "3.2s" },
+              { label: "Top Speed", value: "190 mph" },
             ].map((stat) => (
               <div key={stat.label} className="text-center">
                 <div className="text-2xl font-mono font-medium">{stat.value}</div>
@@ -179,12 +184,12 @@ const HomePage = ({ onNavigate }: { onNavigate: (s: string) => void }) => {
         <div className="max-w-7xl mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
             {[
-              { label: "Engine", value: "3.0L Twin-Turbo Flat-6" },
-              { label: "Power", value: "450 PS / 530 Nm" },
-              { label: "Transmission", value: "8-speed PDK" },
-              { label: "Drivetrain", value: "All-Wheel Drive" },
+              { label: "Engine", value: "3.0L Twin-Turbo Flat-6", icon: "Engine" },
+              { label: "Power", value: "450 PS / 530 Nm", icon: "Bolt" },
+              { label: "Transmission", value: "8-speed PDK", icon: "Settings" },
+              { label: "Drivetrain", value: "All-Wheel Drive", icon: "Activity" },
             ].map((spec) => (
-              <motion.div
+              <motion.div 
                 key={spec.label}
                 whileHover={{ y: -5 }}
                 className="p-8 glass-panel space-y-4"
@@ -205,7 +210,7 @@ const HomePage = ({ onNavigate }: { onNavigate: (s: string) => void }) => {
               <h2 className="text-xs uppercase tracking-[0.3em] text-white/40">Visual Presentation</h2>
               <h3 className="text-4xl font-bold tracking-tight">Featured Photography</h3>
             </div>
-            <button
+            <button 
               onClick={() => onNavigate("gallery")}
               className="text-xs uppercase tracking-widest text-white/60 hover:text-white transition-colors border-b border-white/20 pb-1"
             >
@@ -214,14 +219,14 @@ const HomePage = ({ onNavigate }: { onNavigate: (s: string) => void }) => {
           </div>
 
           <div className="space-y-8">
-            <motion.div
+            <motion.div 
               whileHover={{ y: -5 }}
               className="aspect-[21/9] overflow-hidden group cursor-pointer"
               onClick={() => onNavigate("gallery")}
             >
-              <img
-                src="https://images-porsche.imgix.net/-/media/6DFC261DD0B040A0A3FF9081BD9A36B9_7DFF4660C80843078B7D504B7A95BEEC_CZ26W03OX0001-911-carrera-s-side?w=3000&q=45&crop=faces%2Centropy%2Cedges&auto=format"
-                alt="White 911 Carrera 4S Side View"
+              <img 
+                src="https://images-porsche.imgix.net/-/media/6DFC261DD0B040A0A3FF9081BD9A36B9_7DFF4660C80843078B7D504B7A95BEEC_CZ26W03OX0001-911-carrera-s-side?w=3000&q=45&crop=faces%2Centropy%2Cedges&auto=format" 
+                alt="White 911 Carrera 4S Side View" 
                 className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105"
                 referrerPolicy="no-referrer"
               />
@@ -244,17 +249,16 @@ const AboutPage = () => {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
           <div className="space-y-8">
             <h2 className="text-xs uppercase tracking-[0.3em] text-white/40">My Specification</h2>
-<h3 className="text-5xl font-bold tracking-tight leading-tight">
-  An icon. <br />
-  A journey. <br />
-  A passion.
-</h3>
+            <h3 className="text-5xl font-bold tracking-tight leading-tight">
+              My car, my journey. <br />A lifelong passion.
+            </h3>
             <p className="text-white/60 leading-relaxed text-lg">
-The 992.1 Carrera 4S represents a carefully considered specification built around all-weather capability and everyday usabilit            </p>
+              This Porsche 911 Carrera 4S (992.1) is the culmination of a lifelong dream. Every detail of this specification was carefully selected to create my ideal balance between daily usability and weekend performance. It's more than just a car; it's a personal milestone.
+            </p>
             <div className="pt-8 grid grid-cols-2 gap-8">
               <div>
-                <h4 className="text-xs uppercase tracking-widest text-white/40 mb-2">Exterior</h4>
-                <p className="text-white font-medium">Porsche White</p>
+                <h4 className="text-xs uppercase tracking-widest text-white/40 mb-2">Configuration</h4>
+                <p className="text-white font-medium">White Solid</p>
               </div>
               <div>
                 <h4 className="text-xs uppercase tracking-widest text-white/40 mb-2">Interior</h4>
@@ -263,10 +267,11 @@ The 992.1 Carrera 4S represents a carefully considered specification built aroun
             </div>
           </div>
           <div className="aspect-square overflow-hidden">
-            <img
-              src="/R0020870.webp"
-              alt="Porsche 911 Side"
+            <img 
+              src="/R0020870.JPG" 
+              alt="Porsche 911 Side" 
               className="w-full h-full object-cover"
+              referrerPolicy="no-referrer"
             />
           </div>
         </div>
@@ -289,6 +294,9 @@ The 992.1 Carrera 4S represents a carefully considered specification built aroun
 };
 
 const SpecsPage = () => {
+  const [isOptionsOpen, setIsOptionsOpen] = useState(false);
+  const [isTechDataOpen, setIsTechDataOpen] = useState(false);
+
   const equipmentHighlights = [
     "Sport Chrono Package",
     "Porsche Active Suspension Management (PASM)",
@@ -305,7 +313,7 @@ const SpecsPage = () => {
     {
       category: "Exterior",
       items: [
-        "Metallic paint finish",
+        "Solid white paint",
         "Electric folding exterior mirrors",
         "Sports exhaust system including sports tailpipes",
         "LED main headlights including Porsche Dynamic Light System Plus",
@@ -314,10 +322,9 @@ const SpecsPage = () => {
     {
       category: "Interior",
       items: [
-        "Heated multifunction GT sports steering wheel",
+        "Multifunction GT sports steering wheel",
         "Adaptive sports seats",
         "Seat heating (front)",
-        "Interior trim package",
       ],
     },
     {
@@ -330,7 +337,7 @@ const SpecsPage = () => {
     {
       category: "Assistance Systems",
       items: [
-        "ParkAssist (front and rear) including reversing camera",
+        "ParkAssist (front and rear)",
         "Cruise control",
       ],
     },
@@ -365,10 +372,11 @@ const SpecsPage = () => {
     <div className="pt-32 pb-32 px-6 max-w-7xl mx-auto">
       <div className="mb-20">
         <h2 className="text-xs uppercase tracking-[0.3em] text-white/40 mb-4">Porsche 911 Carrera 4S (992 I)</h2>
-        <h3 className="text-5xl font-bold tracking-tight">My 911 992.1 Specification</h3>
+        <h3 className="text-5xl font-bold tracking-tight">911 992.1 Specification</h3>
       </div>
 
       <div className="space-y-24">
+        {/* Equipment Highlights */}
         <section>
           <h4 className="text-sm uppercase tracking-widest text-white/60 font-semibold border-b border-white/10 pb-4 mb-8">
             Equipment Highlights
@@ -383,56 +391,93 @@ const SpecsPage = () => {
           </div>
         </section>
 
+        {/* Included Options */}
         <section>
-          <h4 className="text-sm uppercase tracking-widest text-white/60 font-semibold border-b border-white/10 pb-4 mb-8">
-            Included Options
-          </h4>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-12">
-            {includedOptions.map((group) => (
-              <div key={group.category} className="space-y-4">
-                <h5 className="text-xs uppercase tracking-wider text-white/30 font-bold">{group.category}</h5>
-                <ul className="space-y-3">
-                  {group.items.map((item) => (
-                    <li key={item} className="text-sm text-white/70 leading-relaxed border-l border-white/10 pl-4">
-                      {item}
-                    </li>
+          <button 
+            onClick={() => setIsOptionsOpen(!isOptionsOpen)}
+            className="w-full flex justify-between items-center text-sm uppercase tracking-widest text-white/60 font-semibold border-b border-white/10 pb-4 mb-8 group"
+          >
+            <span>Included Options</span>
+            {isOptionsOpen ? <ChevronUp size={20} className="text-white/40 group-hover:text-white transition-colors" /> : <ChevronDown size={20} className="text-white/40 group-hover:text-white transition-colors" />}
+          </button>
+          
+          <AnimatePresence>
+            {isOptionsOpen && (
+              <motion.div 
+                initial={{ height: 0, opacity: 0 }}
+                animate={{ height: "auto", opacity: 1 }}
+                exit={{ height: 0, opacity: 0 }}
+                transition={{ duration: 0.3, ease: "easeInOut" }}
+                className="overflow-hidden"
+              >
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-12 pb-8">
+                  {includedOptions.map((group) => (
+                    <div key={group.category} className="space-y-4">
+                      <h5 className="text-xs uppercase tracking-wider text-white/30 font-bold">{group.category}</h5>
+                      <ul className="space-y-3">
+                        {group.items.map((item) => (
+                          <li key={item} className="text-sm text-white/70 leading-relaxed border-l border-white/10 pl-4">
+                            {item}
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
                   ))}
-                </ul>
-              </div>
-            ))}
-          </div>
+                </div>
+              </motion.div>
+            )}
+          </AnimatePresence>
         </section>
 
+        {/* Technical Data */}
         <section>
-          <h4 className="text-sm uppercase tracking-widest text-white/60 font-semibold border-b border-white/10 pb-4 mb-8">
-            Technical Data
-          </h4>
-          <div className="overflow-x-auto">
-            <table className="w-full text-left border-collapse">
-              <thead>
-                <tr className="border-b border-white/10">
-                  <th className="py-4 text-xs uppercase tracking-widest text-white/30 font-medium w-1/3">Category</th>
-                  <th className="py-4 text-xs uppercase tracking-widest text-white/30 font-medium">Specification</th>
-                  <th className="py-4 text-xs uppercase tracking-widest text-white/30 font-medium">Value</th>
-                </tr>
-              </thead>
-              <tbody>
-                {technicalData.map((group) => (
-                  group.specs.map((spec, idx) => (
-                    <tr key={`${group.group}-${spec.label}`} className="border-b border-white/5 hover:bg-white/[0.02] transition-colors">
-                      <td className="py-4 text-xs uppercase tracking-wider text-white/40">
-                        {idx === 0 ? group.group : ""}
-                      </td>
-                      <td className="py-4 text-sm text-white/60">{spec.label}</td>
-                      <td className="py-4 text-sm font-mono text-white/90">{spec.value}</td>
-                    </tr>
-                  ))
-                ))}
-              </tbody>
-            </table>
-          </div>
+          <button 
+            onClick={() => setIsTechDataOpen(!isTechDataOpen)}
+            className="w-full flex justify-between items-center text-sm uppercase tracking-widest text-white/60 font-semibold border-b border-white/10 pb-4 mb-8 group"
+          >
+            <span>Technical Data</span>
+            {isTechDataOpen ? <ChevronUp size={20} className="text-white/40 group-hover:text-white transition-colors" /> : <ChevronDown size={20} className="text-white/40 group-hover:text-white transition-colors" />}
+          </button>
+
+          <AnimatePresence>
+            {isTechDataOpen && (
+              <motion.div 
+                initial={{ height: 0, opacity: 0 }}
+                animate={{ height: "auto", opacity: 1 }}
+                exit={{ height: 0, opacity: 0 }}
+                transition={{ duration: 0.3, ease: "easeInOut" }}
+                className="overflow-hidden"
+              >
+                <div className="overflow-x-auto pb-8">
+                  <table className="w-full text-left border-collapse">
+                    <thead>
+                      <tr className="border-b border-white/10">
+                        <th className="py-4 text-xs uppercase tracking-widest text-white/30 font-medium w-1/3">Category</th>
+                        <th className="py-4 text-xs uppercase tracking-widest text-white/30 font-medium">Specification</th>
+                        <th className="py-4 text-xs uppercase tracking-widest text-white/30 font-medium">Value</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      {technicalData.map((group) => (
+                        group.specs.map((spec, idx) => (
+                          <tr key={`${group.group}-${spec.label}`} className="border-b border-white/5 hover:bg-white/[0.02] transition-colors">
+                            <td className="py-4 text-xs uppercase tracking-wider text-white/40">
+                              {idx === 0 ? group.group : ""}
+                            </td>
+                            <td className="py-4 text-sm text-white/60">{spec.label}</td>
+                            <td className="py-4 text-sm font-mono text-white/90">{spec.value}</td>
+                          </tr>
+                        ))
+                      ))}
+                    </tbody>
+                  </table>
+                </div>
+              </motion.div>
+            )}
+          </AnimatePresence>
         </section>
 
+        {/* Standard Equipment placeholder as per user request */}
         <section>
           <h4 className="text-sm uppercase tracking-widest text-white/60 font-semibold border-b border-white/10 pb-4 mb-4">
             Standard Equipment
@@ -445,39 +490,20 @@ const SpecsPage = () => {
 };
 
 const GalleryPage = () => {
-  const [selectedIndex, setSelectedIndex] = useState<number | null>(null);
+  const [selectedImage, setSelectedImage] = useState<string | null>(null);
 
-  // ✅ FIX: Added .webp extensions — original code had "/R0020870." etc (trailing dot, no extension)
   const images = [
-    "/R0020870.webp",
-    "/R0020891.webp",
-    "/R0020896.webp",
-    "/R0020898.webp",
-    "/R0020902.webp",
-    "/R0020926.webp",
+    "/R0020870.JPG",
+    "/R0020891.JPG",
+    "/R0020896.JPG",
+    "/R0020898.jpg",
+    "/R0020902.JPG",
+    "/R0020926.JPG",
+    "https://911c4s.co.uk/R0021052.webp",
+    "https://911c4s.co.uk/R0021023.webp",
+    "https://911c4s.co.uk/IMG_8760.webp",
+    "https://911c4s.co.uk/IMG_8748.webp",
   ];
-
-  const goNext = useCallback((e: React.MouseEvent) => {
-    e.stopPropagation();
-    setSelectedIndex((prev) => (prev !== null ? (prev + 1) % images.length : 0));
-  }, [images.length]);
-
-  const goPrev = useCallback((e: React.MouseEvent) => {
-    e.stopPropagation();
-    setSelectedIndex((prev) => (prev !== null ? (prev - 1 + images.length) % images.length : 0));
-  }, [images.length]);
-
-  // Keyboard navigation
-  useEffect(() => {
-    if (selectedIndex === null) return;
-    const handler = (e: KeyboardEvent) => {
-      if (e.key === "ArrowRight") setSelectedIndex((p) => (p !== null ? (p + 1) % images.length : 0));
-      if (e.key === "ArrowLeft") setSelectedIndex((p) => (p !== null ? (p - 1 + images.length) % images.length : 0));
-      if (e.key === "Escape") setSelectedIndex(null);
-    };
-    window.addEventListener("keydown", handler);
-    return () => window.removeEventListener("keydown", handler);
-  }, [selectedIndex, images.length]);
 
   return (
     <div className="pt-32 pb-32 px-6 max-w-7xl mx-auto">
@@ -493,73 +519,48 @@ const GalleryPage = () => {
             initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ delay: idx * 0.1 }}
-            onClick={() => setSelectedIndex(idx)}
-            className="overflow-hidden group cursor-pointer aspect-square relative glass-panel"
+            onClick={() => setSelectedImage(src)}
+            className="overflow-hidden group cursor-pointer aspect-square relative glass-panel flex items-center justify-center bg-black/20"
           >
-            {/* ✅ grayscale by default, colour on hover — pure Tailwind, no overlay image needed */}
-            <img
-              src={src}
-              alt={`Gallery ${idx + 1}`}
-              className="w-full h-full object-cover transition-all duration-700 grayscale group-hover:grayscale-0 group-hover:scale-110"
+            <img 
+              src={src} 
+              alt={`Gallery ${idx}`} 
+              className="max-w-full max-h-full object-contain transition-all duration-700 grayscale group-hover:grayscale-0 group-hover:scale-105"
+              referrerPolicy="no-referrer"
             />
             <div className="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
-              <Maximize2 className="text-white w-8 h-8 drop-shadow-lg" />
+              <Maximize2 className="text-white w-8 h-8" />
             </div>
           </motion.div>
         ))}
       </div>
 
-      {/* ✅ Lightbox with prev/next + keyboard navigation */}
+      {/* Lightbox */}
       <AnimatePresence>
-        {selectedIndex !== null && (
+        {selectedImage && (
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            onClick={() => setSelectedIndex(null)}
+            onClick={() => setSelectedImage(null)}
             className="fixed inset-0 z-[100] bg-black/95 backdrop-blur-xl flex items-center justify-center p-4 md:p-12 cursor-zoom-out"
           >
-            {/* Close */}
-            <button
-              className="absolute top-8 right-8 text-white/50 hover:text-white transition-colors z-10"
-              onClick={() => setSelectedIndex(null)}
+            <motion.button
+              className="absolute top-8 right-8 text-white/50 hover:text-white transition-colors"
+              onClick={() => setSelectedImage(null)}
             >
               <X size={32} />
-            </button>
-
-            {/* Prev */}
-            <button
-              className="absolute left-4 md:left-8 text-white/50 hover:text-white transition-colors z-10 p-2"
-              onClick={goPrev}
-            >
-              <ChevronLeft size={40} />
-            </button>
-
-            {/* Image */}
+            </motion.button>
+            
             <motion.img
-              key={selectedIndex}
               initial={{ scale: 0.9, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
               exit={{ scale: 0.9, opacity: 0 }}
-              transition={{ duration: 0.25 }}
-              src={images[selectedIndex]}
-              alt={`Gallery ${selectedIndex + 1}`}
-              className="max-w-full max-h-full object-contain shadow-2xl cursor-default"
-              onClick={(e) => e.stopPropagation()}
+              src={selectedImage}
+              alt="Enlarged view"
+              className="max-w-full max-h-full object-contain shadow-2xl"
+              referrerPolicy="no-referrer"
             />
-
-            {/* Next */}
-            <button
-              className="absolute right-4 md:right-8 text-white/50 hover:text-white transition-colors z-10 p-2"
-              onClick={goNext}
-            >
-              <ChevronRight size={40} />
-            </button>
-
-            {/* Counter */}
-            <div className="absolute bottom-8 left-1/2 -translate-x-1/2 text-white/30 text-xs uppercase tracking-widest">
-              {selectedIndex + 1} / {images.length}
-            </div>
           </motion.div>
         )}
       </AnimatePresence>
@@ -589,7 +590,7 @@ export default function App() {
   return (
     <div className="min-h-screen flex flex-col">
       <Navbar activeSection={activeSection} setActiveSection={setActiveSection} />
-
+      
       <main className="flex-grow">
         <motion.div
           key={activeSection}
