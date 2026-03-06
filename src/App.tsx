@@ -151,7 +151,7 @@ const HomePage = ({ onNavigate }: { onNavigate: (s: string) => void }) => {
               { label: "Top Speed", value: "190 mph" },
             ].map((stat) => (
               <div key={stat.label} className="text-center">
-                <div className="text-2xl font-mono font-medium">{stat.value}</div>
+                <div className="text-2xl font-semibold font-medium">{stat.value}</div>
                 <div className="text-[10px] uppercase tracking-widest text-white/40 mt-1">{stat.label}</div>
               </div>
             ))}
@@ -671,8 +671,10 @@ export default function App() {
   const [activeSection, setActiveSection] = useState("home");
 
   useEffect(() => {
-    window.scrollTo(0, 0);
-  }, [activeSection]);
+window.scrollTo({
+  top: 0,
+  behavior: "smooth"
+});  }, [activeSection]);
 
   const renderContent = () => {
     switch (activeSection) {
