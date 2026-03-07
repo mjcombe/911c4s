@@ -130,6 +130,9 @@ const HomePage = ({ onNavigate }: { onNavigate: (s: string) => void }) => {
     <div className="w-full">
       {/* Hero Section */}
       <section className="relative h-screen w-full overflow-hidden flex items-center justify-center">
+        <div className="absolute inset-0 z-0 overflow-hidden">
+  <div className="absolute w-[140%] h-[140%] -left-[20%] -top-[20%] bg-gradient-to-r from-white/5 via-transparent to-white/5 blur-3xl animate-heroGlow"></div>
+</div>
         <div className="absolute inset-0 z-0">
           <div className="absolute inset-0 bg-gradient-to-b from-porsche-black/40 via-transparent to-porsche-black"></div>
         </div>
