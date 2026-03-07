@@ -85,22 +85,8 @@ const Navbar = ({ activeSection, setActiveSection }: { activeSection: string, se
     </motion.div>
   )}
 </AnimatePresence>
-          {navItems.map((item) => (
-            <button
-              key={item.id}
-              onClick={() => {
-                setActiveSection(item.id);
-                setIsMobileMenuOpen(false);
-              }}
-              className={`text-sm uppercase tracking-[0.2em] text-left ${activeSection === item.id ? "text-white" : "text-white/50"}`}
-            >
-              {item.label}
-            </button>
-          ))}
-        </motion.div>
-      )}
-    </nav>
-  );
+      </nav>
+);
 };
 
 const Footer = () => (
