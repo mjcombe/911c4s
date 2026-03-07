@@ -205,58 +205,43 @@ const HomePage = ({ onNavigate }: { onNavigate: (s: string) => void }) => {
       </section>
 
       {/* Featured Photography */}
-      <section className="py-32 px-6 bg-porsche-black">
-        <div className="max-w-7xl mx-auto">
-          <div className="flex justify-between items-end mb-16">
-            <div className="space-y-4">
-              <h2 className="text-xs uppercase tracking-[0.3em] text-white/40">Visual Presentation</h2>
-              <h3 className="text-4xl font-bold tracking-tight">Featured Photography</h3>
-            </div>
-            <button 
-              onClick={() => onNavigate("gallery")}
-              className="text-xs uppercase tracking-widest text-white/60 hover:text-white transition-colors border-b border-white/20 pb-1"
-            >
-              View Gallery
-            </button>
-          </div>
+<section className="py-32 px-6 bg-porsche-black">
+  <div className="max-w-7xl mx-auto">
 
-<div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+    <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
 
-  {/* Large left image */}
-  <div className="lg:col-span-2 overflow-hidden group">
-    <img 
-      src="/imgi_307_3840-1-scaled.webp"
-      alt="Porsche 911 Carrera 4S Side Profile"
-      loading="lazy"
-      className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105"
-    />
-  </div>
+      <div className="lg:col-span-2 overflow-hidden group">
+        <img
+          src="/imgi_307_3840-1-scaled.webp"
+          alt="Porsche 911 Carrera 4S side"
+          className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105"
+        />
+      </div>
 
-  {/* Right stacked images */}
-  <div className="flex flex-col gap-6">
+      <div className="flex flex-col gap-6">
 
-    <div className="overflow-hidden group">
-      <img 
-        src="/imgi_191_1280-2.webp"
-        alt="Porsche 911 Carrera 4S Rear Angle"
-        loading="lazy"
-        className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105"
-      />
-    </div>
+        <div className="overflow-hidden group">
+          <img
+            src="/imgi_191_1280-2.webp"
+            alt="Porsche 911 rear"
+            className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105"
+          />
+        </div>
 
-    <div className="overflow-hidden group">
-      <img 
-        src="/imgi_207_1280-2.webp"
-        alt="Porsche 911 Carrera 4S Rear View"
-        loading="lazy"
-        className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105"
-      />
+        <div className="overflow-hidden group">
+          <img
+            src="/imgi_207_1280-2.webp"
+            alt="Porsche 911 rear view"
+            className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105"
+          />
+        </div>
+
+      </div>
+
     </div>
 
   </div>
-
-</div>
-      </section>
+</section>
     </div>
   );
 };
