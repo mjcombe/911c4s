@@ -10,7 +10,6 @@
   --color-porsche-silver: #D1D5DB;
   --color-porsche-accent: #E5E7EB;
 }
-}
 
 .animate-heroGlow {
   animation: heroGlow 18s ease-in-out infinite;
