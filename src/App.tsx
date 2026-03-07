@@ -396,6 +396,7 @@ const includedOptions = [
   {
     category: "Interior",
     items: [
+      "Full Porsche black leather",
       "Multifunction GT sports steering wheel",
       "Adaptive sports seats",
       "Seat heating (front)"
