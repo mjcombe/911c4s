@@ -205,7 +205,13 @@ const HomePage = ({ onNavigate }: { onNavigate: (s: string) => void }) => {
       </section>
 
       {/* Featured Photography */}
-<section className="py-32 px-6 bg-porsche-black">
+<motion.section
+  className="py-32 px-6 bg-porsche-black"
+  initial={{ opacity: 0, y: 60 }}
+  whileInView={{ opacity: 1, y: 0 }}
+  transition={{ duration: 0.9, ease: "easeOut" }}
+  viewport={{ once: true, margin: "-100px" }}
+>
   <div className="max-w-7xl mx-auto">
 
     {/* Section Heading */}
@@ -223,8 +229,14 @@ const HomePage = ({ onNavigate }: { onNavigate: (s: string) => void }) => {
     {/* Image Grid */}
     <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
 
-      {/* Large left image */}
-      <div className="lg:col-span-2 relative overflow-hidden group transition-transform duration-500 hover:-translate-y-1">
+      {/* Large image */}
+      <motion.div
+        initial={{ opacity: 0, y: 40 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8 }}
+        viewport={{ once: true }}
+        className="lg:col-span-2 relative overflow-hidden group transition-transform duration-500 hover:-translate-y-1"
+      >
 
         <img
           src="/imgi_307_3840-1-scaled.webp"
@@ -233,19 +245,23 @@ const HomePage = ({ onNavigate }: { onNavigate: (s: string) => void }) => {
           className="w-full h-full object-cover transition-transform duration-[1200ms] ease-out group-hover:scale-105"
         />
 
-        {/* Dark cinematic overlay */}
         <div className="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
 
-        {/* Light sweep reflection */}
         <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
 
-      </div>
+      </motion.div>
 
-      {/* Right stacked images */}
+      {/* Right column */}
       <div className="flex flex-col gap-6">
 
-        {/* Image 1 */}
-        <div className="relative overflow-hidden group transition-transform duration-500 hover:-translate-y-1">
+        {/* Image 2 */}
+        <motion.div
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+          viewport={{ once: true }}
+          className="relative overflow-hidden group transition-transform duration-500 hover:-translate-y-1"
+        >
 
           <img
             src="/imgi_191_1280-2.webp"
@@ -258,10 +274,16 @@ const HomePage = ({ onNavigate }: { onNavigate: (s: string) => void }) => {
 
           <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
 
-        </div>
+        </motion.div>
 
-        {/* Image 2 */}
-        <div className="relative overflow-hidden group transition-transform duration-500 hover:-translate-y-1">
+        {/* Image 3 */}
+        <motion.div
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+          viewport={{ once: true }}
+          className="relative overflow-hidden group transition-transform duration-500 hover:-translate-y-1"
+        >
 
           <img
             src="/imgi_207_1280-2.webp"
@@ -274,14 +296,14 @@ const HomePage = ({ onNavigate }: { onNavigate: (s: string) => void }) => {
 
           <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
 
-        </div>
+        </motion.div>
 
       </div>
 
     </div>
 
   </div>
-</section>
+</motion.section>
     </div>
   );
 };
