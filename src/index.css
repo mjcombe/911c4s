@@ -10,16 +10,6 @@
   --color-porsche-silver: #D1D5DB;
   --color-porsche-accent: #E5E7EB;
 }
-@keyframes heroGlow {
-  0% {
-    transform: translateX(-10%) translateY(0%);
-  }
-  50% {
-    transform: translateX(10%) translateY(5%);
-  }
-  100% {
-    transform: translateX(-10%) translateY(0%);
-  }
 }
 
 .animate-heroGlow {
