@@ -52,15 +52,39 @@ const Navbar = ({ activeSection, setActiveSection }: { activeSection: string, se
         </button>
       </div>
 
-      {/* Mobile Menu */}
-      {isMobileMenuOpen && (
-<motion.div
-  key={activeSection}
-  initial={{ opacity: 0, y: 20 }}
-  animate={{ opacity: 1, y: 0 }}
-  exit={{ opacity: 0, y: -20 }}
-  transition={{ duration: 0.6, ease: "easeOut" }}
->
+{/* Mobile Menu */}
+<AnimatePresence>
+  {isMobileMenuOpen && (
+    <motion.div
+      initial={{ opacity: 0, y: -20 }}
+      animate={{ opacity: 1, y: 0 }}
+      exit={{ opacity: 0, y: -20 }}
+      transition={{ duration: 0.25 }}
+      className="absolute top-full left-0 w-full bg-porsche-black border-b border-white/10 md:hidden"
+    >
+      <div className="flex flex-col px-6 py-8 space-y-6">
+
+        {navItems.map((item) => (
+          <button
+            key={item.id}
+            onClick={() => {
+              setActiveSection(item.id);
+              setIsMobileMenuOpen(false);
+            }}
+            className={`w-full text-left text-sm uppercase tracking-[0.25em] transition-colors ${
+              activeSection === item.id
+                ? "text-white"
+                : "text-white/50 hover:text-white"
+            }`}
+          >
+            {item.label}
+          </button>
+        ))}
+
+      </div>
+    </motion.div>
+  )}
+</AnimatePresence>
           {navItems.map((item) => (
             <button
               key={item.id}
