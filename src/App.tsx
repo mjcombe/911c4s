@@ -54,11 +54,13 @@ const Navbar = ({ activeSection, setActiveSection }: { activeSection: string, se
 
       {/* Mobile Menu */}
       {isMobileMenuOpen && (
-        <motion.div 
-          initial={{ opacity: 0, y: -20 }}
-          animate={{ opacity: 1, y: 0 }}
-          className="absolute top-full left-0 w-full bg-porsche-black border-b border-white/10 py-8 px-6 flex flex-col gap-6 md:hidden"
-        >
+<motion.div
+  key={activeSection}
+  initial={{ opacity: 0, y: 20 }}
+  animate={{ opacity: 1, y: 0 }}
+  exit={{ opacity: 0, y: -20 }}
+  transition={{ duration: 0.6, ease: "easeOut" }}
+>
           {navItems.map((item) => (
             <button
               key={item.id}
